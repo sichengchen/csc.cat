@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vp dev",
     "build": "tsc && vp build",
-    "preview": "vp preview"
+    "preview": "vp preview",
+    "cf:dev": "vp run build && wrangler dev",
+    "deploy": "vp run build && wrangler deploy",
+    "deploy:dry-run": "vp run build && wrangler deploy --dry-run"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.13.0",
@@ -28,7 +31,8 @@
     "tailwindcss": "^4.3.0",
     "typescript": "~6.0.2",
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-    "vite-plus": "latest"
+    "vite-plus": "latest",
+    "wrangler": "^4.97.0"
   },
   "overrides": {
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
