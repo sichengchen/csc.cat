@@ -169,7 +169,7 @@ const copy = {
       },
       rednote: {
         title: "RedNote",
-        description: "Xiaohongshu profile",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -218,7 +218,7 @@ const copy = {
       },
       rednote: {
         title: "RedNote",
-        description: "Perfil de Xiaohongshu",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -267,7 +267,7 @@ const copy = {
       },
       rednote: {
         title: "RedNote",
-        description: "Profil Xiaohongshu",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -316,7 +316,7 @@ const copy = {
       },
       rednote: {
         title: "RedNote",
-        description: "Perfil de Xiaohongshu",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -365,7 +365,7 @@ const copy = {
       },
       rednote: {
         title: "RedNote",
-        description: "Xiaohongshu のプロフィール",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -414,7 +414,7 @@ const copy = {
       },
       rednote: {
         title: "小红书",
-        description: "小红书主页",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -463,7 +463,7 @@ const copy = {
       },
       rednote: {
         title: "小紅書",
-        description: "小紅書主頁",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -512,7 +512,7 @@ const copy = {
       },
       rednote: {
         title: "RedNote",
-        description: "Xiaohongshu-Profil",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -561,7 +561,7 @@ const copy = {
       },
       rednote: {
         title: "RedNote",
-        description: "Profilo Xiaohongshu",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -610,7 +610,7 @@ const copy = {
       },
       rednote: {
         title: "RedNote",
-        description: "Perfil no Xiaohongshu",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -659,7 +659,7 @@ const copy = {
       },
       rednote: {
         title: "RedNote",
-        description: "Xiaohongshu 프로필",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -708,7 +708,7 @@ const copy = {
       },
       rednote: {
         title: "小红书",
-        description: "小红书主页",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -757,7 +757,7 @@ const copy = {
       },
       rednote: {
         title: "小紅書",
-        description: "小紅書首頁",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -806,7 +806,7 @@ const copy = {
       },
       rednote: {
         title: "小紅書",
-        description: "小紅書首頁",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -855,7 +855,7 @@ const copy = {
       },
       rednote: {
         title: "小紅書",
-        description: "小紅書主頁",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
@@ -904,7 +904,7 @@ const copy = {
       },
       rednote: {
         title: "小紅書",
-        description: "小紅書主頁",
+        description: "@scchan",
       },
       bluesky: {
         title: "Bluesky",
