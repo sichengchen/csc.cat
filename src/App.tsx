@@ -1,5 +1,11 @@
 import { AppWindow, ChevronDown, Home, Monitor } from "lucide-react";
-import { SiBluesky, SiGithub, SiInstagram, SiX } from "@icons-pack/react-simple-icons";
+import {
+  SiBluesky,
+  SiGithub,
+  SiInstagram,
+  SiX,
+  SiXiaohongshu,
+} from "@icons-pack/react-simple-icons";
 import type { CSSProperties, ComponentType, SVGProps } from "react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -43,7 +49,16 @@ type Language =
 type LinkIcon = ComponentType<SVGProps<SVGSVGElement>>;
 
 type LinkItem = {
-  id: "homepage" | "system" | "apps" | "github" | "instagram" | "bluesky" | "x" | "linkedin";
+  id:
+    | "homepage"
+    | "system"
+    | "apps"
+    | "github"
+    | "instagram"
+    | "rednote"
+    | "bluesky"
+    | "x"
+    | "linkedin";
   href: string;
   icon: LinkIcon;
 };
@@ -57,6 +72,11 @@ const links: LinkItem[] = [
     id: "instagram",
     href: "https://www.instagram.com/chensc03/",
     icon: SiInstagram,
+  },
+  {
+    id: "rednote",
+    href: "https://www.xiaohongshu.com/user/profile/60e10be2000000000101c20e",
+    icon: SiXiaohongshu,
   },
   {
     id: "bluesky",
@@ -147,6 +167,10 @@ const copy = {
         title: "Instagram",
         description: "@chensc03",
       },
+      rednote: {
+        title: "RedNote",
+        description: "Xiaohongshu profile",
+      },
       bluesky: {
         title: "Bluesky",
         description: "@scchan.com",
@@ -191,6 +215,10 @@ const copy = {
       instagram: {
         title: "Instagram",
         description: "@chensc03",
+      },
+      rednote: {
+        title: "RedNote",
+        description: "Perfil de Xiaohongshu",
       },
       bluesky: {
         title: "Bluesky",
@@ -237,6 +265,10 @@ const copy = {
         title: "Instagram",
         description: "@chensc03",
       },
+      rednote: {
+        title: "RedNote",
+        description: "Profil Xiaohongshu",
+      },
       bluesky: {
         title: "Bluesky",
         description: "@scchan.com",
@@ -281,6 +313,10 @@ const copy = {
       instagram: {
         title: "Instagram",
         description: "@chensc03",
+      },
+      rednote: {
+        title: "RedNote",
+        description: "Perfil de Xiaohongshu",
       },
       bluesky: {
         title: "Bluesky",
@@ -327,6 +363,10 @@ const copy = {
         title: "Instagram",
         description: "@chensc03",
       },
+      rednote: {
+        title: "RedNote",
+        description: "Xiaohongshu のプロフィール",
+      },
       bluesky: {
         title: "Bluesky",
         description: "@scchan.com",
@@ -371,6 +411,10 @@ const copy = {
       instagram: {
         title: "Instagram",
         description: "@chensc03",
+      },
+      rednote: {
+        title: "小红书",
+        description: "小红书主页",
       },
       bluesky: {
         title: "Bluesky",
@@ -417,6 +461,10 @@ const copy = {
         title: "Instagram",
         description: "@chensc03",
       },
+      rednote: {
+        title: "小紅書",
+        description: "小紅書主頁",
+      },
       bluesky: {
         title: "Bluesky",
         description: "@scchan.com",
@@ -461,6 +509,10 @@ const copy = {
       instagram: {
         title: "Instagram",
         description: "@chensc03",
+      },
+      rednote: {
+        title: "RedNote",
+        description: "Xiaohongshu-Profil",
       },
       bluesky: {
         title: "Bluesky",
@@ -507,6 +559,10 @@ const copy = {
         title: "Instagram",
         description: "@chensc03",
       },
+      rednote: {
+        title: "RedNote",
+        description: "Profilo Xiaohongshu",
+      },
       bluesky: {
         title: "Bluesky",
         description: "@scchan.com",
@@ -551,6 +607,10 @@ const copy = {
       instagram: {
         title: "Instagram",
         description: "@chensc03",
+      },
+      rednote: {
+        title: "RedNote",
+        description: "Perfil no Xiaohongshu",
       },
       bluesky: {
         title: "Bluesky",
@@ -597,6 +657,10 @@ const copy = {
         title: "Instagram",
         description: "@chensc03",
       },
+      rednote: {
+        title: "RedNote",
+        description: "Xiaohongshu 프로필",
+      },
       bluesky: {
         title: "Bluesky",
         description: "@scchan.com",
@@ -641,6 +705,10 @@ const copy = {
       instagram: {
         title: "Instagram",
         description: "@chensc03",
+      },
+      rednote: {
+        title: "小红书",
+        description: "小红书主页",
       },
       bluesky: {
         title: "Bluesky",
@@ -687,6 +755,10 @@ const copy = {
         title: "Instagram",
         description: "@chensc03",
       },
+      rednote: {
+        title: "小紅書",
+        description: "小紅書首頁",
+      },
       bluesky: {
         title: "Bluesky",
         description: "@scchan.com",
@@ -731,6 +803,10 @@ const copy = {
       instagram: {
         title: "Instagram",
         description: "@chensc03",
+      },
+      rednote: {
+        title: "小紅書",
+        description: "小紅書首頁",
       },
       bluesky: {
         title: "Bluesky",
@@ -777,6 +853,10 @@ const copy = {
         title: "Instagram",
         description: "@chensc03",
       },
+      rednote: {
+        title: "小紅書",
+        description: "小紅書主頁",
+      },
       bluesky: {
         title: "Bluesky",
         description: "@scchan.com",
@@ -821,6 +901,10 @@ const copy = {
       instagram: {
         title: "Instagram",
         description: "@chensc03",
+      },
+      rednote: {
+        title: "小紅書",
+        description: "小紅書主頁",
       },
       bluesky: {
         title: "Bluesky",
