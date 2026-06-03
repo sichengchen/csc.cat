@@ -22,7 +22,23 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 
-type Language = "en" | "cat";
+type Language =
+  | "cat"
+  | "en"
+  | "fr"
+  | "es"
+  | "ja"
+  | "zh-cn"
+  | "zh-tw"
+  | "de"
+  | "it"
+  | "pt"
+  | "ko"
+  | "wuu"
+  | "hak"
+  | "lzh"
+  | "yue"
+  | "nan";
 
 type LinkIcon = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -56,9 +72,44 @@ const links: LinkItem[] = [
 ];
 
 const languages: { code: Language; label: string }[] = [
-  { code: "en", label: "English" },
   { code: "cat", label: "Català" },
+  { code: "de", label: "Deutsch" },
+  { code: "en", label: "English" },
+  { code: "es", label: "Español" },
+  { code: "fr", label: "Français" },
+  { code: "it", label: "Italiano" },
+  { code: "pt", label: "Português" },
+  { code: "ko", label: "한국어" },
+  { code: "wuu", label: "吴语" },
+  { code: "hak", label: "客家話" },
+  { code: "lzh", label: "文言" },
+  { code: "ja", label: "日本語" },
+  { code: "zh-cn", label: "简体中文" },
+  { code: "yue", label: "粵語" },
+  { code: "zh-tw", label: "繁體中文" },
+  { code: "nan", label: "閩南語" },
 ];
+
+const htmlLanguages: Record<Language, string> = {
+  cat: "ca",
+  en: "en",
+  fr: "fr",
+  es: "es",
+  ja: "ja",
+  "zh-cn": "zh-Hans",
+  "zh-tw": "zh-Hant",
+  de: "de",
+  it: "it",
+  pt: "pt",
+  ko: "ko",
+  wuu: "wuu",
+  hak: "hak",
+  lzh: "lzh",
+  yue: "yue",
+  nan: "nan",
+};
+
+const englishCopyright = "© 2026 Sicheng Chen. All rights reserved.";
 
 const desktopBackgroundImages = Array.from(
   { length: 9 },
@@ -109,7 +160,7 @@ const copy = {
         description: "@sichengchen",
       },
     },
-    copyright: "© 2026 Sicheng Chen. All rights reserved.",
+    copyright: englishCopyright,
   },
   cat: {
     meta: {
@@ -156,12 +207,743 @@ const copy = {
     },
     copyright: "© 2026 Sicheng Chen. Tots els drets reservats.",
   },
+  fr: {
+    meta: {
+      title: "Sicheng Chen | Liens",
+      description: "Sicheng Chen | Liens",
+    },
+    language: "Langue",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "Page d'accueil",
+        description: "La page d'accueil de Sicheng",
+      },
+      system: {
+        title: "System (Page d'accueil)",
+        description: "Essayez-le!",
+      },
+      apps: {
+        title: "Applications",
+        description: "Mes applications",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: "© 2026 Sicheng Chen. Tous droits réservés.",
+  },
+  es: {
+    meta: {
+      title: "Sicheng Chen | Enlaces",
+      description: "Sicheng Chen | Enlaces",
+    },
+    language: "Idioma",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "Página de inicio",
+        description: "La página de inicio de Sicheng",
+      },
+      system: {
+        title: "System (Página de inicio)",
+        description: "¡Pruébalo!",
+      },
+      apps: {
+        title: "Aplicaciones",
+        description: "Mis aplicaciones",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: "© 2026 Sicheng Chen. Todos los derechos reservados.",
+  },
+  ja: {
+    meta: {
+      title: "Sicheng Chen | リンク",
+      description: "Sicheng Chen | リンク",
+    },
+    language: "言語",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "ホームページ",
+        description: "Sicheng のホームページ",
+      },
+      system: {
+        title: "System (ホームページ)",
+        description: "試してみて!",
+      },
+      apps: {
+        title: "アプリ",
+        description: "Sicheng のアプリ",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: englishCopyright,
+  },
+  "zh-cn": {
+    meta: {
+      title: "Sicheng Chen | 链接",
+      description: "Sicheng Chen | 链接",
+    },
+    language: "语言",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "主页",
+        description: "Sicheng 的主页",
+      },
+      system: {
+        title: "System (主页)",
+        description: "试试看!",
+      },
+      apps: {
+        title: "应用",
+        description: "我的应用",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: englishCopyright,
+  },
+  "zh-tw": {
+    meta: {
+      title: "Sicheng Chen | 連結",
+      description: "Sicheng Chen | 連結",
+    },
+    language: "語言",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "首頁",
+        description: "Sicheng 的首頁",
+      },
+      system: {
+        title: "System (首頁)",
+        description: "試試看!",
+      },
+      apps: {
+        title: "應用程式",
+        description: "我的應用程式",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: englishCopyright,
+  },
+  de: {
+    meta: {
+      title: "Sicheng Chen | Links",
+      description: "Sicheng Chen | Links",
+    },
+    language: "Sprache",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "Homepage",
+        description: "Sichengs Homepage",
+      },
+      system: {
+        title: "System (Homepage)",
+        description: "Probier es aus!",
+      },
+      apps: {
+        title: "Apps",
+        description: "Meine Apps",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: "© 2026 Sicheng Chen. Alle Rechte vorbehalten.",
+  },
+  it: {
+    meta: {
+      title: "Sicheng Chen | Link",
+      description: "Sicheng Chen | Link",
+    },
+    language: "Lingua",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "Homepage",
+        description: "La homepage di Sicheng",
+      },
+      system: {
+        title: "System (Homepage)",
+        description: "Provalo!",
+      },
+      apps: {
+        title: "App",
+        description: "Le mie app",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: "© 2026 Sicheng Chen. Tutti i diritti riservati.",
+  },
+  pt: {
+    meta: {
+      title: "Sicheng Chen | Links",
+      description: "Sicheng Chen | Links",
+    },
+    language: "Idioma",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "Página inicial",
+        description: "A página inicial de Sicheng",
+      },
+      system: {
+        title: "System (Página inicial)",
+        description: "Experimente!",
+      },
+      apps: {
+        title: "Apps",
+        description: "Meus apps",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: "© 2026 Sicheng Chen. Todos os direitos reservados.",
+  },
+  ko: {
+    meta: {
+      title: "Sicheng Chen | 링크",
+      description: "Sicheng Chen | 링크",
+    },
+    language: "언어",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "홈페이지",
+        description: "Sicheng의 홈페이지",
+      },
+      system: {
+        title: "System (홈페이지)",
+        description: "사용해 보세요!",
+      },
+      apps: {
+        title: "앱",
+        description: "Sicheng의 앱",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: englishCopyright,
+  },
+  wuu: {
+    meta: {
+      title: "Sicheng Chen | 链接",
+      description: "Sicheng Chen | 链接",
+    },
+    language: "闲话",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "主页",
+        description: "Sicheng 个主页",
+      },
+      system: {
+        title: "System (主页)",
+        description: "试试看!",
+      },
+      apps: {
+        title: "应用",
+        description: "我个应用",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: englishCopyright,
+  },
+  hak: {
+    meta: {
+      title: "Sicheng Chen | 連結",
+      description: "Sicheng Chen | 連結",
+    },
+    language: "語言",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "首頁",
+        description: "Sicheng 个首頁",
+      },
+      system: {
+        title: "System (首頁)",
+        description: "試看啊!",
+      },
+      apps: {
+        title: "應用程式",
+        description: "我个應用程式",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: englishCopyright,
+  },
+  lzh: {
+    meta: {
+      title: "Sicheng Chen | 鏈接",
+      description: "Sicheng Chen | 鏈接",
+    },
+    language: "語言",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "首頁",
+        description: "Sicheng 之首頁",
+      },
+      system: {
+        title: "System (首頁)",
+        description: "試之!",
+      },
+      apps: {
+        title: "應用",
+        description: "吾之應用",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: englishCopyright,
+  },
+  yue: {
+    meta: {
+      title: "Sicheng Chen | 連結",
+      description: "Sicheng Chen | 連結",
+    },
+    language: "語言",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "主頁",
+        description: "Sicheng 嘅主頁",
+      },
+      system: {
+        title: "System (主頁)",
+        description: "試下啦!",
+      },
+      apps: {
+        title: "應用程式",
+        description: "我嘅應用程式",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: englishCopyright,
+  },
+  nan: {
+    meta: {
+      title: "Sicheng Chen | 鏈結",
+      description: "Sicheng Chen | 鏈結",
+    },
+    language: "語言",
+    profile: {
+      name: "Sicheng Chen",
+    },
+    links: {
+      homepage: {
+        title: "首頁",
+        description: "Sicheng ê 首頁",
+      },
+      system: {
+        title: "System (首頁)",
+        description: "試看覓!",
+      },
+      apps: {
+        title: "Apps",
+        description: "我 ê apps",
+      },
+      github: {
+        title: "GitHub",
+        description: "@sichengchen",
+      },
+      instagram: {
+        title: "Instagram",
+        description: "@chensc03",
+      },
+      bluesky: {
+        title: "Bluesky",
+        description: "@scchan.com",
+      },
+      x: {
+        title: "X (Twitter)",
+        description: "@syzen_zen",
+      },
+      linkedin: {
+        title: "LinkedIn",
+        description: "@sichengchen",
+      },
+    },
+    copyright: englishCopyright,
+  },
 } as const;
+
+function isLanguage(value: string | null): value is Language {
+  return languages.some((option) => option.code === value);
+}
+
+function getBrowserLanguage(): Language {
+  const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+
+  for (const locale of browserLanguages) {
+    const language = matchSupportedLanguage(locale);
+
+    if (language) {
+      return language;
+    }
+  }
+
+  return "en";
+}
+
+function matchSupportedLanguage(locale: string | undefined): Language | null {
+  const language = locale?.toLowerCase();
+
+  if (!language) {
+    return null;
+  }
+
+  if (language.startsWith("ca")) {
+    return "cat";
+  }
+
+  if (language.startsWith("de")) {
+    return "de";
+  }
+
+  if (language.startsWith("en")) {
+    return "en";
+  }
+
+  if (language.startsWith("es")) {
+    return "es";
+  }
+
+  if (language.startsWith("fr")) {
+    return "fr";
+  }
+
+  if (language.startsWith("it")) {
+    return "it";
+  }
+
+  if (language.startsWith("pt")) {
+    return "pt";
+  }
+
+  if (language.startsWith("ko")) {
+    return "ko";
+  }
+
+  if (language.startsWith("wuu")) {
+    return "wuu";
+  }
+
+  if (
+    language.startsWith("hak") ||
+    language.startsWith("zh-hakka") ||
+    language.startsWith("i-hak")
+  ) {
+    return "hak";
+  }
+
+  if (language.startsWith("lzh")) {
+    return "lzh";
+  }
+
+  if (language.startsWith("ja")) {
+    return "ja";
+  }
+
+  if (language.startsWith("yue")) {
+    return "yue";
+  }
+
+  if (language.startsWith("nan") || language.startsWith("zh-min-nan")) {
+    return "nan";
+  }
+
+  if (
+    language.startsWith("zh-tw") ||
+    language.startsWith("zh-hant") ||
+    language.startsWith("zh-hk") ||
+    language.startsWith("zh-mo")
+  ) {
+    return "zh-tw";
+  }
+
+  if (language.startsWith("zh")) {
+    return "zh-cn";
+  }
+
+  return null;
+}
 
 function getInitialLanguage(): Language {
   const saved = window.localStorage.getItem("catalog-language");
 
-  if (saved === "en" || saved === "cat") {
+  if (isLanguage(saved)) {
     return saved;
   }
 
@@ -169,7 +951,7 @@ function getInitialLanguage(): Language {
     return "cat";
   }
 
-  return navigator.language.toLowerCase().startsWith("ca") ? "cat" : "en";
+  return getBrowserLanguage();
 }
 
 export function App() {
@@ -180,7 +962,7 @@ export function App() {
   const t = copy[language];
 
   useEffect(() => {
-    document.documentElement.lang = language === "cat" ? "ca" : "en";
+    document.documentElement.lang = htmlLanguages[language];
     document.title = t.meta.title;
 
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
