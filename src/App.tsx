@@ -1,4 +1,4 @@
-import { AppWindow, ChevronDown, Home, Monitor } from "lucide-react";
+import { AppWindow, ChevronDown, Home } from "lucide-react";
 import {
   SiBluesky,
   SiGithub,
@@ -65,7 +65,7 @@ type LinkItem = {
 
 const links: LinkItem[] = [
   { id: "homepage", href: "https://scchan.com", icon: Home },
-  { id: "system", href: "https://scchan.com/system", icon: Monitor },
+  { id: "system", href: "https://scchan.com/system", icon: HappyMacIcon },
   { id: "apps", href: "https://www.scchan.moe/apps", icon: AppWindow },
   { id: "github", href: "https://github.com/sichengchen", icon: SiGithub },
   {
@@ -1138,6 +1138,18 @@ export function App() {
         </CardFooter>
       </Card>
     </main>
+  );
+}
+
+function HappyMacIcon({ "aria-hidden": ariaHidden, className }: SVGProps<SVGSVGElement>) {
+  return (
+    <img
+      aria-hidden={ariaHidden}
+      alt=""
+      className={className}
+      decoding="async"
+      src="https://scchan.com/icons/classic-mac-elements/happy-mac-icon.svg"
+    />
   );
 }
 
