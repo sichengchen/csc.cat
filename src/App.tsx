@@ -1115,7 +1115,7 @@ export function App() {
                   <a href={link.href}>
                     <span className="flex w-full items-start gap-3 p-4">
                       <span className="flex size-10 shrink-0 items-center justify-center text-foreground">
-                        <Icon aria-hidden="true" className="size-7" focusable="false" />
+                        <Icon aria-hidden="true" className="size-6" focusable="false" />
                       </span>
                       <span className="min-w-0 flex-1 space-y-0">
                         <span className="block text-sm leading-snug font-medium">
