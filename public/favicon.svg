@@ -1,4 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#fff"/>
   <path d="M256 0V64H320V256H256V320H192V384H128V512H256V576H64V512H0V320H64V256H128V192H192V64H64V0ZM320 448V512H256V448ZM64 128H0V64H64Z" fill="#000" transform="translate(18.666667 56.000000) scale(0.083333 -0.083333)"/>
 </svg>
