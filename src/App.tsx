@@ -1,4 +1,4 @@
-import { AppWindow, ChevronDown, Home } from "lucide-react";
+import { ChevronDown, Grip, Home } from "lucide-react";
 import {
   SiBluesky,
   SiGithub,
@@ -66,7 +66,7 @@ type LinkItem = {
 const links: LinkItem[] = [
   { id: "homepage", href: "https://scchan.com", icon: Home },
   { id: "system", href: "https://scchan.com/system", icon: HappyMacIcon },
-  { id: "apps", href: "https://www.scchan.moe/apps", icon: AppWindow },
+  { id: "apps", href: "https://www.scchan.moe/apps", icon: Grip },
   { id: "github", href: "https://github.com/sichengchen", icon: SiGithub },
   {
     id: "instagram",
