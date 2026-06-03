@@ -1,4 +1,4 @@
-import { ChevronDown, Grip, Home } from "lucide-react";
+import { ChevronDown, Grip } from "lucide-react";
 import {
   SiBluesky,
   SiGithub,
@@ -64,7 +64,7 @@ type LinkItem = {
 };
 
 const links: LinkItem[] = [
-  { id: "homepage", href: "https://scchan.com", icon: Home },
+  { id: "homepage", href: "https://scchan.com", icon: FaviconIcon },
   { id: "system", href: "https://scchan.com/system", icon: HappyMacIcon },
   { id: "apps", href: "https://www.scchan.moe/apps", icon: Grip },
   { id: "github", href: "https://github.com/sichengchen", icon: SiGithub },
@@ -1149,6 +1149,18 @@ function HappyMacIcon({ "aria-hidden": ariaHidden, className }: SVGProps<SVGSVGE
       className={className}
       decoding="async"
       src="https://scchan.com/icons/classic-mac-elements/happy-mac-icon.svg"
+    />
+  );
+}
+
+function FaviconIcon({ "aria-hidden": ariaHidden, className }: SVGProps<SVGSVGElement>) {
+  return (
+    <img
+      aria-hidden={ariaHidden}
+      alt=""
+      className={className}
+      decoding="async"
+      src="/favicon.svg"
     />
   );
 }
