@@ -1,4 +1,4 @@
-import { BookOpen, ChevronDown, Grip } from "lucide-react";
+import { ChevronDown, Grip, NotepadText } from "lucide-react";
 import {
   SiBluesky,
   SiGithub,
@@ -27,7 +27,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
-import { redirectPath, type RedirectId } from "@/redirects";
+import { redirectPath, type LinkId } from "@/redirects";
 
 type Language =
   | "cat"
@@ -50,15 +50,15 @@ type Language =
 type LinkIcon = ComponentType<SVGProps<SVGSVGElement>>;
 
 type LinkItem = {
-  id: RedirectId;
+  id: LinkId;
   icon: LinkIcon;
 };
 
 const links: LinkItem[] = [
   { id: "homepage", icon: FaviconIcon },
   { id: "system", icon: HappyMacIcon },
+  { id: "blog", icon: NotepadText },
   { id: "apps", icon: Grip },
-  { id: "blog", icon: BookOpen },
   { id: "github", icon: SiGithub },
   { id: "instagram", icon: SiInstagram },
   { id: "rednote", icon: SiXiaohongshu },
