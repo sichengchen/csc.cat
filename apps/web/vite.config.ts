@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { defineConfig, type Plugin } from "vite-plus";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import { redirects } from "@csc/shared/redirects";
+import redirects from "../../packages/shared/src/redirects.json";
 
 function redirectsPlugin(): Plugin {
   return {
