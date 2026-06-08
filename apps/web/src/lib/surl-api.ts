@@ -5,13 +5,11 @@ import type {
   SlugAvailability,
   SurlListItem,
 } from "@csc/shared";
+import { ApiClientError, requestJson } from "./api-client";
 
-export class SurlApiError extends Error {
-  code: ApiErrorCode;
-
-  constructor(code: ApiErrorCode) {
-    super(code);
-    this.code = code;
+export class SurlApiError extends ApiClientError {
+  constructor(code: ApiErrorCode, status = 400) {
+    super(code, status);
   }
 }
 
@@ -19,38 +17,14 @@ async function request<T>(
   path: string,
   options: RequestInit & { token?: string | null } = {},
 ): Promise<T> {
-  const headers = new Headers(options.headers);
-  headers.set("Content-Type", "application/json");
-
-  if (options.token) {
-    headers.set("Authorization", `Bearer ${options.token}`);
-  }
-
-  const response = await fetch(path, {
-    ...options,
-    headers,
-  });
-
-  if (!response.ok) {
-    let code: ApiErrorCode = "validation_error";
-    try {
-      const body = (await response.json()) as { error?: ApiErrorCode };
-      if (body.error) {
-        code = body.error;
-      }
-    } catch {
-      if (response.status === 401) {
-        code = "unauthorized";
-      }
+  try {
+    return await requestJson<T>(path, options);
+  } catch (error) {
+    if (error instanceof ApiClientError) {
+      throw new SurlApiError(error.code, error.status);
     }
-    throw new SurlApiError(code);
+    throw error;
   }
-
-  if (response.status === 204) {
-    return undefined as T;
-  }
-
-  return (await response.json()) as T;
 }
 
 export async function listLinks(token: string | null): Promise<SurlListItem[]> {

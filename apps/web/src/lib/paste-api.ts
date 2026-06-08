@@ -5,15 +5,11 @@ import type {
   PastePublicItem,
   SlugAvailability,
 } from "@csc/shared";
+import { ApiClientError, requestJson } from "./api-client";
 
-export class PasteApiError extends Error {
-  code: ApiErrorCode;
-  status: number;
-
+export class PasteApiError extends ApiClientError {
   constructor(code: ApiErrorCode, status = 400) {
-    super(code);
-    this.code = code;
-    this.status = status;
+    super(code, status);
   }
 }
 
@@ -21,40 +17,14 @@ async function request<T>(
   path: string,
   options: RequestInit & { token?: string | null } = {},
 ): Promise<T> {
-  const headers = new Headers(options.headers);
-  headers.set("Content-Type", "application/json");
-
-  if (options.token) {
-    headers.set("Authorization", `Bearer ${options.token}`);
-  }
-
-  const response = await fetch(path, {
-    ...options,
-    headers,
-  });
-
-  if (!response.ok) {
-    let code: ApiErrorCode = "validation_error";
-    try {
-      const body = (await response.json()) as { error?: ApiErrorCode };
-      if (body.error) {
-        code = body.error;
-      }
-    } catch {
-      if (response.status === 401) {
-        code = "unauthorized";
-      } else if (response.status === 404 || response.status === 410) {
-        code = "not_found";
-      }
+  try {
+    return await requestJson<T>(path, options);
+  } catch (error) {
+    if (error instanceof ApiClientError) {
+      throw new PasteApiError(error.code, error.status);
     }
-    throw new PasteApiError(code, response.status);
+    throw error;
   }
-
-  if (response.status === 204) {
-    return undefined as T;
-  }
-
-  return (await response.json()) as T;
 }
 
 export async function listPastes(token: string | null): Promise<PasteListItem[]> {
@@ -103,26 +73,9 @@ export async function deletePaste(token: string | null, slug: string): Promise<v
 }
 
 export async function fetchPublicPaste(slug: string): Promise<PastePublicItem> {
-  const response = await fetch(`/api/paste/${encodeURIComponent(slug)}`, {
+  const data = await request<{ paste: PastePublicItem }>(`/api/paste/${encodeURIComponent(slug)}`, {
     method: "GET",
   });
-
-  if (!response.ok) {
-    let code: ApiErrorCode = "validation_error";
-    try {
-      const body = (await response.json()) as { error?: ApiErrorCode };
-      if (body.error) {
-        code = body.error;
-      }
-    } catch {
-      if (response.status === 404 || response.status === 410) {
-        code = "not_found";
-      }
-    }
-    throw new PasteApiError(code, response.status);
-  }
-
-  const data = (await response.json()) as { paste: PastePublicItem };
   return data.paste;
 }
 
