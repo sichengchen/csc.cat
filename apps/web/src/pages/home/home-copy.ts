@@ -1,7 +1,5 @@
 const englishCopyright = "© 2026 Sicheng Chen. All rights reserved.";
 
-
-
 export const copy = {
   en: {
     meta: {

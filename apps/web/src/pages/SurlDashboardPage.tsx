@@ -62,14 +62,14 @@ export function SurlDashboardPage() {
     loading: loadingLinks,
     loadItems: loadLinks,
   } = useAuthenticatedResourceList({
-    enabled: isSignedIn,
+    enabled: Boolean(isSignedIn),
     getToken,
     listItems: listLinks,
     onError: handleApiError,
   });
 
   const { suggesting: suggestingSlug, refreshSuggestedSlug } = useSuggestedSlug({
-    enabled: isSignedIn,
+    enabled: Boolean(isSignedIn),
     getToken,
     suggestSlug,
     onSuggestedSlug: setSlug,
@@ -77,7 +77,7 @@ export function SurlDashboardPage() {
   });
 
   const { status: slugStatus, reason: slugReason } = useSlugAvailability({
-    enabled: isSignedIn,
+    enabled: Boolean(isSignedIn),
     slug,
     getToken,
     checkAvailability: checkSlugAvailability,

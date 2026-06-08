@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { RESERVED_SLUGS } from "./redirects";
-import { EXPIRY_PRESETS, type ExpiryPreset } from "./expiry";
+import { EXPIRY_PRESETS } from "./expiry";
 import { SLUG_PATTERN } from "./slug";
 
 export { computeExpiresAt, EXPIRY_PRESETS, isExpired, type ExpiryPreset } from "./expiry";

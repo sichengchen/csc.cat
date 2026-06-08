@@ -37,10 +37,7 @@ async function parseErrorCode(response: Response): Promise<ApiErrorCode> {
   }
 }
 
-export async function requestJson<T>(
-  path: string,
-  options: JsonRequestOptions = {},
-): Promise<T> {
+export async function requestJson<T>(path: string, options: JsonRequestOptions = {}): Promise<T> {
   const headers = new Headers(options.headers);
 
   if (options.body && !headers.has("Content-Type")) {

@@ -1,8 +1,4 @@
-import {
-  generateRandomSlug,
-  getSlugValidationError,
-  type SlugAvailability,
-} from "@csc/shared";
+import { generateRandomSlug, getSlugValidationError, type SlugAvailability } from "@csc/shared";
 
 type GetRecordBySlug<TRecord> = (kv: KVNamespace, slug: string) => Promise<TRecord | null>;
 
@@ -50,7 +46,11 @@ export async function checkSlugAvailability<TRecord>(
   return { available: true };
 }
 
-export function buildPublicResourceUrl(requestUrl: string, pathPrefix: string, slug: string): string {
+export function buildPublicResourceUrl(
+  requestUrl: string,
+  pathPrefix: string,
+  slug: string,
+): string {
   const origin = new URL(requestUrl).origin;
   return `${origin}${pathPrefix}/${slug}`;
 }

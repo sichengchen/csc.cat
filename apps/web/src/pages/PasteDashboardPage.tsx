@@ -73,14 +73,14 @@ export function PasteDashboardPage() {
     loading: loadingPastes,
     loadItems: loadPastes,
   } = useAuthenticatedResourceList({
-    enabled: isSignedIn,
+    enabled: Boolean(isSignedIn),
     getToken,
     listItems: listPastes,
     onError: handleApiError,
   });
 
   const { suggesting: suggestingSlug, refreshSuggestedSlug } = useSuggestedSlug({
-    enabled: isSignedIn,
+    enabled: Boolean(isSignedIn),
     getToken,
     suggestSlug: suggestPasteSlug,
     onSuggestedSlug: setSlug,
@@ -88,7 +88,7 @@ export function PasteDashboardPage() {
   });
 
   const { status: slugStatus, reason: slugReason } = useSlugAvailability({
-    enabled: isSignedIn,
+    enabled: Boolean(isSignedIn),
     slug,
     getToken,
     checkAvailability: checkPasteSlugAvailability,
