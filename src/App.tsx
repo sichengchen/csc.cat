@@ -27,6 +27,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
+import { redirectPath, type RedirectId } from "@/redirects";
 
 type Language =
   | "cat"
@@ -49,48 +50,21 @@ type Language =
 type LinkIcon = ComponentType<SVGProps<SVGSVGElement>>;
 
 type LinkItem = {
-  id:
-    | "homepage"
-    | "system"
-    | "apps"
-    | "blog"
-    | "github"
-    | "instagram"
-    | "rednote"
-    | "bluesky"
-    | "x"
-    | "linkedin";
-  href: string;
+  id: RedirectId;
   icon: LinkIcon;
 };
 
 const links: LinkItem[] = [
-  { id: "homepage", href: "https://scchan.com", icon: FaviconIcon },
-  { id: "system", href: "https://scchan.com/system", icon: HappyMacIcon },
-  { id: "apps", href: "https://www.scchan.moe/apps", icon: Grip },
-  { id: "blog", href: "https://blog.scchan.com", icon: BookOpen },
-  { id: "github", href: "https://github.com/sichengchen", icon: SiGithub },
-  {
-    id: "instagram",
-    href: "https://www.instagram.com/chensc03/",
-    icon: SiInstagram,
-  },
-  {
-    id: "rednote",
-    href: "https://www.xiaohongshu.com/user/profile/60e10be2000000000101c20e",
-    icon: SiXiaohongshu,
-  },
-  {
-    id: "bluesky",
-    href: "https://bsky.app/profile/scchan.com",
-    icon: SiBluesky,
-  },
-  { id: "x", href: "https://x.com/syzen_zen", icon: SiX },
-  {
-    id: "linkedin",
-    href: "https://www.linkedin.com/in/sichengchen/",
-    icon: LinkedinIcon,
-  },
+  { id: "homepage", icon: FaviconIcon },
+  { id: "system", icon: HappyMacIcon },
+  { id: "apps", icon: Grip },
+  { id: "blog", icon: BookOpen },
+  { id: "github", icon: SiGithub },
+  { id: "instagram", icon: SiInstagram },
+  { id: "rednote", icon: SiXiaohongshu },
+  { id: "bluesky", icon: SiBluesky },
+  { id: "x", icon: SiX },
+  { id: "linkedin", icon: LinkedinIcon },
 ];
 
 const languages: { code: Language; label: string }[] = [
@@ -1178,7 +1152,7 @@ export function App() {
                   size="lg"
                   variant="outline"
                 >
-                  <a href={link.href}>
+                  <a href={redirectPath(link.id)}>
                     <span className="flex w-full items-start gap-3 p-4">
                       <span className="flex size-10 shrink-0 items-center justify-center text-foreground">
                         <Icon aria-hidden="true" className="size-6" focusable="false" />
