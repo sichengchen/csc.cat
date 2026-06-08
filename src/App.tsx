@@ -1,4 +1,4 @@
-import { ChevronDown, Grip } from "lucide-react";
+import { BookOpen, ChevronDown, Grip } from "lucide-react";
 import {
   SiBluesky,
   SiGithub,
@@ -53,6 +53,7 @@ type LinkItem = {
     | "homepage"
     | "system"
     | "apps"
+    | "blog"
     | "github"
     | "instagram"
     | "rednote"
@@ -67,6 +68,7 @@ const links: LinkItem[] = [
   { id: "homepage", href: "https://scchan.com", icon: FaviconIcon },
   { id: "system", href: "https://scchan.com/system", icon: HappyMacIcon },
   { id: "apps", href: "https://www.scchan.moe/apps", icon: Grip },
+  { id: "blog", href: "https://blog.scchan.com", icon: BookOpen },
   { id: "github", href: "https://github.com/sichengchen", icon: SiGithub },
   {
     id: "instagram",
@@ -159,6 +161,10 @@ const copy = {
         title: "Apps",
         description: "My apps",
       },
+      blog: {
+        title: "Blog",
+        description: "Posts, photos, and films I recently watched",
+      },
       github: {
         title: "GitHub",
         description: "@sichengchen",
@@ -207,6 +213,10 @@ const copy = {
       apps: {
         title: "Apps",
         description: "Les meves apps",
+      },
+      blog: {
+        title: "Blog",
+        description: "Articles, fotos i pel·lícules que he vist recentment",
       },
       github: {
         title: "GitHub",
@@ -257,6 +267,10 @@ const copy = {
         title: "Applications",
         description: "Mes applications",
       },
+      blog: {
+        title: "Blog",
+        description: "Articles, photos et films récemment regardés",
+      },
       github: {
         title: "GitHub",
         description: "@sichengchen",
@@ -305,6 +319,10 @@ const copy = {
       apps: {
         title: "Aplicaciones",
         description: "Mis aplicaciones",
+      },
+      blog: {
+        title: "Blog",
+        description: "Publicaciones, fotos y películas que vi recientemente",
       },
       github: {
         title: "GitHub",
@@ -355,6 +373,10 @@ const copy = {
         title: "アプリ",
         description: "Sicheng のアプリ",
       },
+      blog: {
+        title: "ブログ",
+        description: "記事、写真、最近観た映画",
+      },
       github: {
         title: "GitHub",
         description: "@sichengchen",
@@ -403,6 +425,10 @@ const copy = {
       apps: {
         title: "应用",
         description: "我的应用",
+      },
+      blog: {
+        title: "博客",
+        description: "文章、照片和最近看的电影",
       },
       github: {
         title: "GitHub",
@@ -453,6 +479,10 @@ const copy = {
         title: "應用程式",
         description: "我的應用程式",
       },
+      blog: {
+        title: "部落格",
+        description: "文章、照片和最近看的電影",
+      },
       github: {
         title: "GitHub",
         description: "@sichengchen",
@@ -501,6 +531,10 @@ const copy = {
       apps: {
         title: "Apps",
         description: "Meine Apps",
+      },
+      blog: {
+        title: "Blog",
+        description: "Beiträge, Fotos und kürzlich gesehene Filme",
       },
       github: {
         title: "GitHub",
@@ -551,6 +585,10 @@ const copy = {
         title: "App",
         description: "Le mie app",
       },
+      blog: {
+        title: "Blog",
+        description: "Articoli, foto e film visti di recente",
+      },
       github: {
         title: "GitHub",
         description: "@sichengchen",
@@ -599,6 +637,10 @@ const copy = {
       apps: {
         title: "Apps",
         description: "Meus apps",
+      },
+      blog: {
+        title: "Blog",
+        description: "Publicações, fotos e filmes que assisti recentemente",
       },
       github: {
         title: "GitHub",
@@ -649,6 +691,10 @@ const copy = {
         title: "앱",
         description: "Sicheng의 앱",
       },
+      blog: {
+        title: "블로그",
+        description: "글, 사진, 최근에 본 영화",
+      },
       github: {
         title: "GitHub",
         description: "@sichengchen",
@@ -697,6 +743,10 @@ const copy = {
       apps: {
         title: "应用",
         description: "我个应用",
+      },
+      blog: {
+        title: "博客",
+        description: "文章、照片搭最近看个电影",
       },
       github: {
         title: "GitHub",
@@ -747,6 +797,10 @@ const copy = {
         title: "應用程式",
         description: "我个應用程式",
       },
+      blog: {
+        title: "部落格",
+        description: "文章、照片同最近看个電影",
+      },
       github: {
         title: "GitHub",
         description: "@sichengchen",
@@ -795,6 +849,10 @@ const copy = {
       apps: {
         title: "應用",
         description: "吾之應用",
+      },
+      blog: {
+        title: "博客",
+        description: "文章、圖片與近日所觀之影戲",
       },
       github: {
         title: "GitHub",
@@ -845,6 +903,10 @@ const copy = {
         title: "應用程式",
         description: "我嘅應用程式",
       },
+      blog: {
+        title: "網誌",
+        description: "文章、相片同最近睇過嘅電影",
+      },
       github: {
         title: "GitHub",
         description: "@sichengchen",
@@ -893,6 +955,10 @@ const copy = {
       apps: {
         title: "Apps",
         description: "我 ê apps",
+      },
+      blog: {
+        title: "部落格",
+        description: "文章、相片 kah 最近看過 ê 電影",
       },
       github: {
         title: "GitHub",
