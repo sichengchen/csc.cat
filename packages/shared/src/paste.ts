@@ -1,0 +1,134 @@
+import { z } from "zod";
+import { RESERVED_SLUGS } from "./redirects";
+import {
+  computeExpiresAt,
+  EXPIRY_PRESETS,
+  generateRandomSlug,
+  getSlugValidationError,
+  isExpired,
+  SLUG_PATTERN,
+  type ApiErrorCode,
+  type ExpiryPreset,
+} from "./surl";
+
+export {
+  computeExpiresAt,
+  EXPIRY_PRESETS,
+  generateRandomSlug,
+  getSlugValidationError,
+  isExpired,
+  SLUG_PATTERN,
+  type ApiErrorCode,
+  type ExpiryPreset,
+};
+
+export const PASTE_LANGUAGES = [
+  "plain",
+  "bash",
+  "c",
+  "cpp",
+  "csharp",
+  "css",
+  "go",
+  "html",
+  "java",
+  "javascript",
+  "json",
+  "kotlin",
+  "markdown",
+  "php",
+  "python",
+  "ruby",
+  "rust",
+  "sql",
+  "swift",
+  "typescript",
+  "yaml",
+] as const;
+
+export type PasteLanguage = (typeof PASTE_LANGUAGES)[number];
+
+const PASTE_LANGUAGE_LABELS: Record<PasteLanguage, string> = {
+  plain: "Plain text",
+  bash: "Bash",
+  c: "C",
+  cpp: "C++",
+  csharp: "C#",
+  css: "CSS",
+  go: "Go",
+  html: "HTML",
+  java: "Java",
+  javascript: "JavaScript",
+  json: "JSON",
+  kotlin: "Kotlin",
+  markdown: "Markdown",
+  php: "PHP",
+  python: "Python",
+  ruby: "Ruby",
+  rust: "Rust",
+  sql: "SQL",
+  swift: "Swift",
+  typescript: "TypeScript",
+  yaml: "YAML",
+};
+
+export function pasteLanguageLabel(language: PasteLanguage): string {
+  return PASTE_LANGUAGE_LABELS[language];
+}
+
+export const MAX_PASTE_CONTENT_LENGTH = 512_000;
+
+export const createPasteSchema = z.object({
+  slug: z
+    .string()
+    .min(3)
+    .max(32)
+    .regex(SLUG_PATTERN, "invalid_slug")
+    .refine((slug) => !RESERVED_SLUGS.has(slug), "slug_reserved"),
+  content: z.string().min(1).max(MAX_PASTE_CONTENT_LENGTH),
+  language: z.enum(PASTE_LANGUAGES),
+  expiry: z.enum(EXPIRY_PRESETS),
+});
+
+export type CreatePasteInput = z.infer<typeof createPasteSchema>;
+
+export type PasteRecord = {
+  slug: string;
+  content: string;
+  language: PasteLanguage;
+  userId: string;
+  createdAt: number;
+  expiresAt: number | null;
+};
+
+export type PasteListItem = {
+  slug: string;
+  contentPreview: string;
+  language: PasteLanguage;
+  createdAt: number;
+  expiresAt: number | null;
+  pasteUrl: string;
+  expired: boolean;
+};
+
+export type PastePublicItem = {
+  slug: string;
+  content: string;
+  language: PasteLanguage;
+  createdAt: number;
+  expiresAt: number | null;
+};
+
+export const PASTE_URL_ORIGIN = "https://csc.cat";
+
+export function buildPasteUrl(slug: string): string {
+  return `${PASTE_URL_ORIGIN}/p/${slug}`;
+}
+
+export function buildContentPreview(content: string, maxLength = 120): string {
+  const normalized = content.replace(/\s+/g, " ").trim();
+  if (normalized.length <= maxLength) {
+    return normalized;
+  }
+  return `${normalized.slice(0, maxLength)}…`;
+}

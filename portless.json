@@ -1,0 +1,6 @@
+{
+  "apps": {
+    "apps/web": { "name": "csc-cat", "script": "dev:portless" },
+    "packages/api": { "name": "api.csc-cat", "script": "dev:portless" }
+  }
+}

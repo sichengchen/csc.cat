@@ -4,15 +4,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vp run --parallel dev",
+    "dev": "portless",
+    "dev:direct": "PORTLESS=0 vp run --parallel dev:direct",
     "build": "vp run -r build",
     "check": "vp check",
     "preview": "vp run @csc/web#preview",
     "cf:dev": "vp run build && wrangler dev",
+    "cf:dev:portless": "portless csc-cat --script cf:dev:portless",
+    "cf:dev:portless:inner": "node scripts/cf-dev-portless.mjs",
     "deploy": "vp run build && wrangler deploy",
     "deploy:dry-run": "vp run build && wrangler deploy --dry-run"
   },
   "devDependencies": {
+    "portless": "latest",
     "typescript": "~6.0.2",
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
     "vite-plus": "latest",

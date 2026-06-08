@@ -18,6 +18,9 @@ export const clerkAuth = createMiddleware<AppEnv>(async (c, next) => {
       secretKey: c.env.CLERK_SECRET_KEY,
       authorizedParties: [
         "https://surl.scchan.com",
+        "https://paste.scchan.com",
+        "https://surl.scchan.localhost",
+        "https://paste.scchan.localhost",
         "http://localhost:8787",
         "http://127.0.0.1:8787",
       ],

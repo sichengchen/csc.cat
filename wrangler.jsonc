@@ -8,7 +8,7 @@
     "directory": "apps/web/dist",
     "not_found_handling": "single-page-application",
     "binding": "ASSETS",
-		"run_worker_first": ["/api/*", "/s/*"],
+    "run_worker_first": ["/api/*", "/s/*", "/p/*"],
   },
   "kv_namespaces": [
     {
@@ -30,6 +30,10 @@
     },
     {
       "pattern": "surl.scchan.com",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "paste.scchan.com",
       "custom_domain": true,
     },
   ],

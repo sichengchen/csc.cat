@@ -22,11 +22,15 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 
 ### Services
 
-| Service | Command | URL |
-|---|---|---|
-| Vite dev server (required) | `pnpm dev` | http://localhost:5173 |
-| Wrangler local (optional) | `pnpm cf:dev` | http://localhost:8787 — tests Cloudflare Workers + `_redirects` |
-| Production preview (optional) | `pnpm build && pnpm preview` | Vite preview port |
+| Service                        | Command                      | URL                                                                                                                            |
+| ------------------------------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Full stack (portless, default) | `pnpm dev`                   | https://csc-cat.localhost (home), https://surl.scchan.localhost, https://paste.scchan.localhost, https://api.csc-cat.localhost |
+| Full stack (direct ports)      | `pnpm dev:direct`            | Vite http://localhost:5173, Worker http://localhost:8787                                                                       |
+| Worker + assets (portless)     | `pnpm cf:dev:portless`       | https://csc-cat.localhost (+ dashboard aliases)                                                                                |
+| Worker + assets (direct)       | `pnpm cf:dev`                | http://localhost:8787                                                                                                          |
+| Production preview             | `pnpm build && pnpm preview` | Vite preview port                                                                                                              |
+
+Run `portless trust` once after install if the browser warns about the local CA. Use `PORTLESS=0 pnpm dev:direct` to bypass portless entirely.
 
 Run the dev server in a tmux session so it stays up across agent turns.
 
