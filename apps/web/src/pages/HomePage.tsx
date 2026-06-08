@@ -1,1 +1,1 @@
-export { App as HomePage } from "@/App";
+export { HomePage } from "./home/HomePage";
