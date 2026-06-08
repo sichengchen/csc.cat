@@ -30,7 +30,6 @@ surlRoutes.get("/", async (c) => {
   const userId = c.get("userId");
   const slugs = await getUserSlugs(c.env.SURL_KV, userId);
   const now = Date.now();
-  const requestUrl = c.req.url;
 
   const items: SurlListItem[] = [];
 
@@ -46,7 +45,7 @@ surlRoutes.get("/", async (c) => {
       url: record.url,
       createdAt: record.createdAt,
       expiresAt: record.expiresAt,
-      shortUrl: buildPublicResourceUrl(requestUrl, "/s", record.slug),
+      shortUrl: buildPublicResourceUrl("/s", record.slug),
       expired,
     });
   }
@@ -85,7 +84,7 @@ surlRoutes.post("/", zValidator("json", createSurlSchema), async (c) => {
         url: record.url,
         createdAt: record.createdAt,
         expiresAt: record.expiresAt,
-        shortUrl: buildPublicResourceUrl(c.req.url, "/s", record.slug),
+        shortUrl: buildPublicResourceUrl("/s", record.slug),
         expired: false,
       } satisfies SurlListItem,
     },

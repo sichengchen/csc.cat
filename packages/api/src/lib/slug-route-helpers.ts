@@ -2,6 +2,8 @@ import { generateRandomSlug, getSlugValidationError, type SlugAvailability } fro
 
 type GetRecordBySlug<TRecord> = (kv: KVNamespace, slug: string) => Promise<TRecord | null>;
 
+const PUBLIC_RESOURCE_ORIGIN = "https://csc.cat";
+
 export async function isSlugAvailable<TRecord>(
   kv: KVNamespace,
   slug: string,
@@ -46,11 +48,6 @@ export async function checkSlugAvailability<TRecord>(
   return { available: true };
 }
 
-export function buildPublicResourceUrl(
-  requestUrl: string,
-  pathPrefix: string,
-  slug: string,
-): string {
-  const origin = new URL(requestUrl).origin;
-  return `${origin}${pathPrefix}/${slug}`;
+export function buildPublicResourceUrl(pathPrefix: string, slug: string): string {
+  return `${PUBLIC_RESOURCE_ORIGIN}${pathPrefix}/${slug}`;
 }

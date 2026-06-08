@@ -42,7 +42,6 @@ pasteRoutes.get("/", clerkAuth, async (c) => {
   const userId = c.get("userId");
   const slugs = await getUserPasteSlugs(c.env.SURL_KV, userId);
   const now = Date.now();
-  const requestUrl = c.req.url;
 
   const items: PasteListItem[] = [];
 
@@ -59,7 +58,7 @@ pasteRoutes.get("/", clerkAuth, async (c) => {
       language: record.language,
       createdAt: record.createdAt,
       expiresAt: record.expiresAt,
-      pasteUrl: buildPublicResourceUrl(requestUrl, "/p", record.slug),
+      pasteUrl: buildPublicResourceUrl("/p", record.slug),
       expired,
     });
   }
@@ -100,7 +99,7 @@ pasteRoutes.post("/", clerkAuth, zValidator("json", createPasteSchema), async (c
         language: record.language,
         createdAt: record.createdAt,
         expiresAt: record.expiresAt,
-        pasteUrl: buildPublicResourceUrl(c.req.url, "/p", record.slug),
+        pasteUrl: buildPublicResourceUrl("/p", record.slug),
         expired: false,
       } satisfies PasteListItem,
     },
