@@ -1,67 +1,20 @@
-import type { PasteRecord } from "@csc/shared";
+import { pasteRecordSchema, type PasteRecord } from "@csc/shared";
+import { createSlugResourceKv } from "./slug-resource-kv";
 
-export function pasteSlugKey(slug: string): string {
-  return `paste:${slug}`;
-}
+const pasteKv = createSlugResourceKv<PasteRecord>({
+  itemPrefix: "paste",
+  userPrefix: "paste-user",
+  parseRecord(value) {
+    const result = pasteRecordSchema.safeParse(value);
+    return result.success ? result.data : null;
+  },
+});
 
-export function pasteUserKey(userId: string): string {
-  return `paste-user:${userId}`;
-}
-
-export async function getPaste(kv: KVNamespace, slug: string): Promise<PasteRecord | null> {
-  const raw = await kv.get(pasteSlugKey(slug), "json");
-  if (!raw) {
-    return null;
-  }
-  return raw as PasteRecord;
-}
-
-export async function putPaste(kv: KVNamespace, record: PasteRecord): Promise<void> {
-  await kv.put(pasteSlugKey(record.slug), JSON.stringify(record));
-}
-
-export async function deletePaste(kv: KVNamespace, slug: string, userId: string): Promise<boolean> {
-  const record = await getPaste(kv, slug);
-  if (!record || record.userId !== userId) {
-    return false;
-  }
-
-  await kv.delete(pasteSlugKey(slug));
-
-  const slugs = await getUserPasteSlugs(kv, userId);
-  const next = slugs.filter((item) => item !== slug);
-  await kv.put(pasteUserKey(userId), JSON.stringify(next));
-
-  return true;
-}
-
-export async function getUserPasteSlugs(kv: KVNamespace, userId: string): Promise<string[]> {
-  const raw = await kv.get(pasteUserKey(userId), "json");
-  if (!raw || !Array.isArray(raw)) {
-    return [];
-  }
-  return raw as string[];
-}
-
-export async function addUserPasteSlug(
-  kv: KVNamespace,
-  userId: string,
-  slug: string,
-): Promise<void> {
-  const slugs = await getUserPasteSlugs(kv, userId);
-  if (!slugs.includes(slug)) {
-    slugs.push(slug);
-    await kv.put(pasteUserKey(userId), JSON.stringify(slugs));
-  }
-}
-
-export async function removeExpiredPaste(
-  kv: KVNamespace,
-  slug: string,
-  userId: string,
-): Promise<void> {
-  await kv.delete(pasteSlugKey(slug));
-  const slugs = await getUserPasteSlugs(kv, userId);
-  const next = slugs.filter((item) => item !== slug);
-  await kv.put(pasteUserKey(userId), JSON.stringify(next));
-}
+export const pasteSlugKey = pasteKv.itemKey;
+export const pasteUserKey = pasteKv.userKey;
+export const getPaste = pasteKv.getRecord;
+export const putPaste = pasteKv.putRecord;
+export const deletePaste = pasteKv.deleteRecord;
+export const getUserPasteSlugs = pasteKv.getUserSlugs;
+export const addUserPasteSlug = pasteKv.addUserSlug;
+export const removeExpiredPaste = pasteKv.removeRecord;
