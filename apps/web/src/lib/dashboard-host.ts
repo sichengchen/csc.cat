@@ -1,25 +1,25 @@
 import type { DashboardKind } from "@/DashboardApp";
 
-const PASTE_HOSTS = new Set(["paste.scchan.com", "paste.scchan.localhost"]);
-const SURL_HOSTS = new Set(["surl.scchan.com", "surl.scchan.localhost"]);
+const DASHBOARD_HOSTS = {
+  "paste.scchan.com": "paste",
+  "paste.scchan.localhost": "paste",
+  "surl.scchan.com": "surl",
+  "surl.scchan.localhost": "surl",
+} satisfies Record<string, DashboardKind>;
+
+function isDirectWorkerDev(hostname: string, port: string): boolean {
+  return (hostname === "localhost" || hostname === "127.0.0.1") && port === "8787";
+}
 
 export function getDashboardKind(hostname: string, port: string): DashboardKind | null {
-  if (PASTE_HOSTS.has(hostname)) {
-    return "paste";
+  const dashboardKind = DASHBOARD_HOSTS[hostname];
+  if (dashboardKind) {
+    return dashboardKind;
   }
 
-  if (SURL_HOSTS.has(hostname)) {
-    return "surl";
-  }
-
-  // Direct wrangler dev without portless
-  if ((hostname === "localhost" || hostname === "127.0.0.1") && port === "8787") {
+  if (isDirectWorkerDev(hostname, port)) {
     return "surl";
   }
 
   return null;
-}
-
-export function isDashboardHost(hostname: string, port: string): boolean {
-  return getDashboardKind(hostname, port) !== null;
 }
