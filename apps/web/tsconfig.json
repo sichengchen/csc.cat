@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2023", "DOM"],
+    "types": ["vite-plus/client"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@csc/shared": ["../../packages/shared/src/index.ts"],
+      "@csc/shared/*": ["../../packages/shared/src/*"]
+    }
+  },
+  "include": ["src"]
+}

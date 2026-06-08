@@ -13,6 +13,7 @@ const linkRedirects = {
 
 const extraRedirects = {
   watched: "https://blog.scchan.com/watched",
+  surl: "https://surl.scchan.com",
 } as const;
 
 export const redirects = {
@@ -22,6 +23,8 @@ export const redirects = {
 
 export type LinkId = keyof typeof linkRedirects;
 export type RedirectId = keyof typeof redirects;
+
+export const RESERVED_SLUGS = new Set<string>(Object.keys(redirects));
 
 export function redirectPath(id: LinkId): string {
   return `/${id}`;

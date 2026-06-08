@@ -27,7 +27,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
-import { redirectPath, type LinkId } from "@/redirects";
+import { redirectPath, type LinkId } from "@csc/shared/redirects";
 
 type Language =
   | "cat"

@@ -1,27 +1,8 @@
 {
-  "compilerOptions": {
-    "target": "es2023",
-    "module": "esnext",
-    "lib": ["ES2023", "DOM"],
-    "jsx": "react-jsx",
-    "types": ["vite-plus/client"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "noEmit": true,
-
-    /* Linting */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "include": ["src"]
+  "files": [],
+  "references": [
+    { "path": "./apps/web" },
+    { "path": "./packages/api" },
+    { "path": "./packages/shared" }
+  ]
 }

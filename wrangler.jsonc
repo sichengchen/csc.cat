@@ -1,11 +1,23 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "csc-cat",
+  "main": "packages/api/src/index.ts",
   "compatibility_date": "2026-06-03",
   "workers_dev": false,
   "assets": {
-    "directory": "./dist",
+    "directory": "apps/web/dist",
     "not_found_handling": "single-page-application",
+    "binding": "ASSETS",
+		"run_worker_first": ["/api/*", "/s/*"],
+  },
+  "kv_namespaces": [
+    {
+      "binding": "SURL_KV",
+      "id": "1e08966c65f84fbdb3d4a0e2a9e8bb22",
+    },
+  ],
+  "observability": {
+    "enabled": true,
   },
   "routes": [
     {
@@ -14,6 +26,10 @@
     },
     {
       "pattern": "www.csc.cat",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "surl.scchan.com",
       "custom_domain": true,
     },
   ],
