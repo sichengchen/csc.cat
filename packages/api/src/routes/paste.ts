@@ -1,10 +1,7 @@
 import {
   buildContentPreview,
-  buildPasteUrl,
   computeExpiresAt,
   createPasteSchema,
-  generateRandomSlug,
-  getSlugValidationError,
   isExpired,
   type PasteListItem,
   type PastePublicItem,
@@ -20,47 +17,32 @@ import {
   putPaste,
   removeExpiredPaste,
 } from "../lib/paste-kv";
+import {
+  buildPublicResourceUrl,
+  checkSlugAvailability,
+  suggestAvailableSlug,
+} from "../lib/slug-route-helpers";
 import type { AppEnv } from "../types";
 
 export const pasteRoutes = new Hono<AppEnv>();
 
-async function isPasteSlugAvailable(kv: KVNamespace, slug: string): Promise<boolean> {
-  if (getSlugValidationError(slug)) {
-    return false;
-  }
-  const record = await getPaste(kv, slug.toLowerCase());
-  return !record;
-}
-
 pasteRoutes.get("/suggest-slug", clerkAuth, async (c) => {
-  for (let attempt = 0; attempt < 20; attempt++) {
-    const slug = generateRandomSlug();
-    if (await isPasteSlugAvailable(c.env.SURL_KV, slug)) {
-      return c.json({ slug });
-    }
+  const slug = await suggestAvailableSlug(c.env.SURL_KV, getPaste);
+  if (slug) {
+    return c.json({ slug });
   }
   return c.json({ error: "validation_error" as const }, 500);
 });
 
 pasteRoutes.get("/check/:slug", clerkAuth, async (c) => {
-  const slug = c.req.param("slug").toLowerCase();
-  const validationError = getSlugValidationError(slug);
-  if (validationError) {
-    return c.json({ available: false, reason: validationError });
-  }
-
-  const record = await getPaste(c.env.SURL_KV, slug);
-  if (record) {
-    return c.json({ available: false, reason: "slug_taken" as const });
-  }
-
-  return c.json({ available: true });
+  return c.json(await checkSlugAvailability(c.env.SURL_KV, c.req.param("slug"), getPaste));
 });
 
 pasteRoutes.get("/", clerkAuth, async (c) => {
   const userId = c.get("userId");
   const slugs = await getUserPasteSlugs(c.env.SURL_KV, userId);
   const now = Date.now();
+  const requestUrl = c.req.url;
 
   const items: PasteListItem[] = [];
 
@@ -77,7 +59,7 @@ pasteRoutes.get("/", clerkAuth, async (c) => {
       language: record.language,
       createdAt: record.createdAt,
       expiresAt: record.expiresAt,
-      pasteUrl: buildPasteUrl(record.slug),
+      pasteUrl: buildPublicResourceUrl(requestUrl, "/p", record.slug),
       expired,
     });
   }
@@ -118,7 +100,7 @@ pasteRoutes.post("/", clerkAuth, zValidator("json", createPasteSchema), async (c
         language: record.language,
         createdAt: record.createdAt,
         expiresAt: record.expiresAt,
-        pasteUrl: buildPasteUrl(record.slug),
+        pasteUrl: buildPublicResourceUrl(c.req.url, "/p", record.slug),
         expired: false,
       } satisfies PasteListItem,
     },

@@ -111,12 +111,6 @@ export type PastePublicItem = {
   expiresAt: number | null;
 };
 
-export const PASTE_URL_ORIGIN = "https://csc.cat";
-
-export function buildPasteUrl(slug: string): string {
-  return `${PASTE_URL_ORIGIN}/p/${slug}`;
-}
-
 export function buildContentPreview(content: string, maxLength = 120): string {
   const normalized = content.replace(/\s+/g, " ").trim();
   if (normalized.length <= maxLength) {

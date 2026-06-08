@@ -53,9 +53,3 @@ export type SurlListItem = {
   shortUrl: string;
   expired: boolean;
 };
-
-export const SHORT_URL_ORIGIN = "https://csc.cat";
-
-export function buildShortUrl(slug: string): string {
-  return `${SHORT_URL_ORIGIN}/s/${slug}`;
-}
