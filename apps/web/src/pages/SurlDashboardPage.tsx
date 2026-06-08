@@ -32,7 +32,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { useSurlLanguage } from "@/hooks/use-surl-language";
 import { languageOptions } from "@/lib/surl-i18n";
 import {
@@ -59,10 +66,6 @@ function formatExpiry(
     return t.expired;
   }
   return new Date(expiresAt).toLocaleString();
-}
-
-function truncateUrl(url: string, max = 48): string {
-  return url.length > max ? `${url.slice(0, max)}…` : url;
 }
 
 export function SurlDashboardPage() {
@@ -371,53 +374,57 @@ export function SurlDashboardPage() {
             ) : links.length === 0 ? (
               <p className="text-sm text-muted-foreground">{t.emptyLinks}</p>
             ) : (
-              <div className="relative w-fit max-w-full overflow-x-auto">
-                <table className="w-auto caption-bottom text-sm">
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="pr-4">{t.columns.slug}</TableHead>
-                      <TableHead className="pr-4">{t.columns.destination}</TableHead>
-                      <TableHead className="pr-3">{t.columns.expiry}</TableHead>
-                      <TableHead className="sr-only">{t.columns.actions}</TableHead>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-[1%] pr-4 whitespace-nowrap">
+                      {t.columns.slug}
+                    </TableHead>
+                    <TableHead className="min-w-0 pr-4">{t.columns.destination}</TableHead>
+                    <TableHead className="w-[1%] pr-3 whitespace-nowrap">
+                      {t.columns.expiry}
+                    </TableHead>
+                    <TableHead className="w-[1%]">
+                      <span className="sr-only">{t.columns.actions}</span>
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {links.map((link) => (
+                    <TableRow key={link.slug}>
+                      <TableCell className="pr-4 font-medium">{link.slug}</TableCell>
+                      <TableCell className="max-w-0 truncate pr-4" title={link.url}>
+                        {link.url}
+                      </TableCell>
+                      <TableCell className="pr-3 text-xs whitespace-nowrap">
+                        {formatExpiry(link.expiresAt, link.expired, t)}
+                      </TableCell>
+                      <TableCell className="pl-1">
+                        <div className="flex gap-1">
+                          <Button
+                            aria-label={t.copy}
+                            onClick={() => void handleCopy(link.shortUrl)}
+                            size="icon-sm"
+                            type="button"
+                            variant="outline"
+                          >
+                            <Copy />
+                          </Button>
+                          <Button
+                            aria-label={t.delete}
+                            onClick={() => setDeleteTarget(link)}
+                            size="icon-sm"
+                            type="button"
+                            variant="destructive"
+                          >
+                            <Trash2 />
+                          </Button>
+                        </div>
+                      </TableCell>
                     </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {links.map((link) => (
-                      <TableRow key={link.slug}>
-                        <TableCell className="pr-4 font-medium">{link.slug}</TableCell>
-                        <TableCell className="max-w-48 truncate pr-4" title={link.url}>
-                          {truncateUrl(link.url, 28)}
-                        </TableCell>
-                        <TableCell className="pr-3 text-xs whitespace-nowrap">
-                          {formatExpiry(link.expiresAt, link.expired, t)}
-                        </TableCell>
-                        <TableCell className="pl-1">
-                          <div className="flex gap-1">
-                            <Button
-                              aria-label={t.copy}
-                              onClick={() => void handleCopy(link.shortUrl)}
-                              size="icon-sm"
-                              type="button"
-                              variant="outline"
-                            >
-                              <Copy />
-                            </Button>
-                            <Button
-                              aria-label={t.delete}
-                              onClick={() => setDeleteTarget(link)}
-                              size="icon-sm"
-                              type="button"
-                              variant="destructive"
-                            >
-                              <Trash2 />
-                            </Button>
-                          </div>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </table>
-              </div>
+                  ))}
+                </TableBody>
+              </Table>
             )}
           </CardContent>
         </Card>
