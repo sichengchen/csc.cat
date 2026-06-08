@@ -14,3 +14,31 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - [ ] If setup, runtime, or package-manager behavior looks wrong, run `vp env doctor` and include its output when asking for help.
 
 <!--VITE PLUS END-->
+
+## Cursor Cloud specific instructions
+
+**csc.cat** is a static React links page (Vite+ / pnpm). No database, API, or `.env` files are required for local development.
+
+### Services
+
+| Service | Command | URL |
+|---|---|---|
+| Vite dev server (required) | `pnpm dev` | http://localhost:5173 |
+| Wrangler local (optional) | `pnpm cf:dev` | http://localhost:8787 — tests Cloudflare Workers + `_redirects` |
+| Production preview (optional) | `pnpm build && pnpm preview` | Vite preview port |
+
+Run the dev server in a tmux session so it stays up across agent turns.
+
+### Validation
+
+- `pnpm exec vp lint` — lint only
+- `pnpm exec tsc --noEmit` — type check
+- `pnpm run build` — production build
+- `pnpm exec vp check` — format + lint + type check (may report pre-existing formatting drift in UI component files)
+- `pnpm exec vp test` — exits with code 1 when no `*.test.*` / `*.spec.*` files exist (expected for this repo)
+
+Use `pnpm exec vp` (or `pnpm dev` / `pnpm run build`) rather than a global `vp` binary; the CLI is provided by the local `vite-plus` devDependency.
+
+### Deploy
+
+`pnpm deploy` requires Cloudflare credentials (`wrangler login` or `CLOUDFLARE_API_TOKEN`). Not needed for local UI work.
