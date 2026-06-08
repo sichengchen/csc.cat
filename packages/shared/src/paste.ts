@@ -1,26 +1,16 @@
 import { z } from "zod";
 import { RESERVED_SLUGS } from "./redirects";
-import {
-  computeExpiresAt,
-  EXPIRY_PRESETS,
-  generateRandomSlug,
-  getSlugValidationError,
-  isExpired,
-  SLUG_PATTERN,
-  type ApiErrorCode,
-  type ExpiryPreset,
-} from "./surl";
+import { EXPIRY_PRESETS } from "./expiry";
+import { SLUG_PATTERN } from "./slug";
 
+export { computeExpiresAt, EXPIRY_PRESETS, isExpired, type ExpiryPreset } from "./expiry";
 export {
-  computeExpiresAt,
-  EXPIRY_PRESETS,
   generateRandomSlug,
   getSlugValidationError,
-  isExpired,
   SLUG_PATTERN,
-  type ApiErrorCode,
-  type ExpiryPreset,
-};
+  type SlugAvailability,
+} from "./slug";
+export type { ApiErrorCode } from "./api-errors";
 
 export const PASTE_LANGUAGES = [
   "plain",
@@ -92,14 +82,16 @@ export const createPasteSchema = z.object({
 
 export type CreatePasteInput = z.infer<typeof createPasteSchema>;
 
-export type PasteRecord = {
-  slug: string;
-  content: string;
-  language: PasteLanguage;
-  userId: string;
-  createdAt: number;
-  expiresAt: number | null;
-};
+export const pasteRecordSchema = z.object({
+  slug: z.string(),
+  content: z.string(),
+  language: z.enum(PASTE_LANGUAGES),
+  userId: z.string(),
+  createdAt: z.number(),
+  expiresAt: z.number().nullable(),
+});
+
+export type PasteRecord = z.infer<typeof pasteRecordSchema>;
 
 export type PasteListItem = {
   slug: string;

@@ -5,7 +5,11 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./api-errors": "./src/api-errors.ts",
+    "./expiry": "./src/expiry.ts",
+    "./paste": "./src/paste.ts",
     "./redirects": "./src/redirects.ts",
+    "./slug": "./src/slug.ts",
     "./surl": "./src/surl.ts"
   },
   "dependencies": {
