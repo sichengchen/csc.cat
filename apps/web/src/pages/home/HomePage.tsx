@@ -63,13 +63,32 @@ export function HomePage() {
 
   return (
     <main
-      className="min-h-svh bg-background px-4 py-6 text-foreground sm:grid sm:place-items-center sm:bg-(image:--desktop-background-image) sm:bg-[oklch(1_0_0_/_82%)] sm:bg-cover sm:bg-center sm:bg-no-repeat sm:bg-blend-soft-light sm:py-8 dark:sm:bg-background dark:sm:bg-none"
+      className="flex min-h-svh flex-col items-center gap-6 bg-background px-4 py-6 text-foreground sm:bg-(image:--desktop-background-image) sm:bg-[oklch(1_0_0_/_82%)] sm:bg-cover sm:bg-center sm:bg-no-repeat sm:bg-blend-soft-light sm:py-8 dark:sm:bg-background dark:sm:bg-none"
       style={
         {
           "--desktop-background-image": `url(${desktopBackgroundImage})`,
         } as CSSProperties
       }
     >
+      {showInAppBrowserNotice ? (
+        <Alert role="note" className="w-full max-w-md">
+          <ExternalLink aria-hidden="true" />
+          <AlertTitle>{inAppBrowserNotice.title}</AlertTitle>
+          <AlertDescription>{inAppBrowserNotice.description}</AlertDescription>
+          <AlertAction>
+            <Button
+              aria-label={inAppBrowserNotice.dismiss}
+              onClick={() => setShowInAppBrowserNotice(false)}
+              size="icon-xs"
+              type="button"
+              variant="ghost"
+            >
+              <X aria-hidden="true" data-icon="inline-start" />
+            </Button>
+          </AlertAction>
+        </Alert>
+      ) : null}
+
       <Card className="w-full max-w-md rounded-none bg-transparent shadow-none ring-0 sm:rounded-xl sm:bg-card sm:shadow-lg sm:ring-1">
         <CardHeader className="px-0 sm:px-4">
           <div className="flex justify-end">
@@ -137,25 +156,6 @@ export function HomePage() {
               );
             })}
           </div>
-
-          {showInAppBrowserNotice ? (
-            <Alert role="note">
-              <ExternalLink aria-hidden="true" />
-              <AlertTitle>{inAppBrowserNotice.title}</AlertTitle>
-              <AlertDescription>{inAppBrowserNotice.description}</AlertDescription>
-              <AlertAction>
-                <Button
-                  aria-label={inAppBrowserNotice.dismiss}
-                  onClick={() => setShowInAppBrowserNotice(false)}
-                  size="icon-xs"
-                  type="button"
-                  variant="ghost"
-                >
-                  <X aria-hidden="true" data-icon="inline-start" />
-                </Button>
-              </AlertAction>
-            </Alert>
-          ) : null}
         </CardContent>
 
         <CardFooter className="justify-center border-t-0 bg-transparent px-0 sm:border-t sm:bg-muted/50 sm:p-4">

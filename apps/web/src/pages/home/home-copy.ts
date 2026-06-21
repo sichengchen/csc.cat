@@ -859,92 +859,89 @@ type InAppBrowserNoticeCopy = {
 
 export const inAppBrowserNoticeCopy = {
   en: {
-    title: "Browser tip",
-    description:
-      'You can continue here. If something looks off, use the app menu to choose "Open in Browser."',
+    title: "Open in your browser",
+    description: 'For the best experience, tap the menu button and choose "Open in Browser."',
     dismiss: "Dismiss notice",
   },
   cat: {
-    title: "Consell del navegador",
+    title: "Obre-ho al navegador",
     description:
-      'Pots continuar aquí. Si alguna cosa no es veu bé, fes servir el menú de l\'app i tria "Obre al navegador".',
+      'Per tenir la millor experiència, toca el botó de menú i tria "Obre al navegador".',
     dismiss: "Tanca l'avís",
   },
   fr: {
-    title: "Conseil navigateur",
+    title: "Ouvrir dans le navigateur",
     description:
-      'Vous pouvez continuer ici. Si quelque chose semble incorrect, utilisez le menu de l\'app et choisissez "Ouvrir dans le navigateur".',
+      'Pour une meilleure expérience, touchez le bouton de menu, puis choisissez "Ouvrir dans le navigateur".',
     dismiss: "Fermer l'avis",
   },
   es: {
-    title: "Consejo del navegador",
+    title: "Ábrelo en el navegador",
     description:
-      'Puedes continuar aquí. Si algo se ve raro, usa el menú de la app y elige "Abrir en el navegador".',
+      'Para una mejor experiencia, toca el botón de menú y elige "Abrir en el navegador".',
     dismiss: "Cerrar aviso",
   },
   ja: {
-    title: "ブラウザのヒント",
+    title: "ブラウザで開く",
     description:
-      "このまま続けられます。表示がおかしい場合は、アプリのメニューから「ブラウザで開く」を選んでください。",
+      "より快適に使うには、メニューボタンをタップして「ブラウザで開く」を選んでください。",
     dismiss: "通知を閉じる",
   },
   "zh-cn": {
-    title: "浏览器提示",
-    description: "你可以继续在这里使用。如果显示异常，可通过应用菜单选择“在浏览器中打开”。",
+    title: "在浏览器中打开",
+    description: "为了获得更好的体验，请点按菜单按钮，然后选择“在浏览器中打开”。",
     dismiss: "关闭提示",
   },
   "zh-tw": {
-    title: "瀏覽器提示",
-    description: "你可以繼續在這裡使用。如果顯示異常，可透過應用程式選單選擇「在瀏覽器中開啟」。",
+    title: "在瀏覽器中開啟",
+    description: "為了獲得更好的體驗，請點按選單按鈕，然後選擇「在瀏覽器中開啟」。",
     dismiss: "關閉提示",
   },
   de: {
-    title: "Browser-Hinweis",
-    description:
-      'Du kannst hier fortfahren. Wenn etwas nicht richtig aussieht, nutze das App-Menü und wähle "Im Browser öffnen".',
+    title: "Im Browser öffnen",
+    description: 'Tippe für die beste Erfahrung auf die Menütaste und wähle "Im Browser öffnen".',
     dismiss: "Hinweis schließen",
   },
   it: {
-    title: "Suggerimento browser",
+    title: "Apri nel browser",
     description:
-      'Puoi continuare qui. Se qualcosa non sembra corretto, usa il menu dell\'app e scegli "Apri nel browser".',
+      'Per un\'esperienza migliore, tocca il pulsante del menu e scegli "Apri nel browser".',
     dismiss: "Chiudi avviso",
   },
   pt: {
-    title: "Dica do navegador",
+    title: "Abrir no navegador",
     description:
-      'Você pode continuar aqui. Se algo parecer estranho, use o menu do app e escolha "Abrir no navegador".',
+      'Para uma melhor experiência, toque no botão de menu e escolha "Abrir no navegador".',
     dismiss: "Fechar aviso",
   },
   ko: {
-    title: "브라우저 팁",
-    description:
-      "여기서 계속 사용할 수 있습니다. 화면이 이상하면 앱 메뉴에서 “브라우저에서 열기”를 선택하세요.",
+    title: "브라우저에서 열기",
+    description: "더 나은 경험을 위해 메뉴 버튼을 누른 뒤 “브라우저에서 열기”를 선택하세요.",
     dismiss: "알림 닫기",
   },
   wuu: {
-    title: "浏览器提示",
-    description: "侬可以勒此地继续用。假使显示勿正常，请用应用菜单选“勒浏览器里向打开”。",
+    title: "勒浏览器里向打开",
+    description: "为着更好个体验，请点菜单按钮，再选“勒浏览器里向打开”。",
     dismiss: "关脱提示",
   },
   hak: {
-    title: "瀏覽器提示",
-    description: "你做得繼續在這使用。若係顯示毋正常，請用應用程式選單選「在瀏覽器打開」。",
+    title: "在瀏覽器打開",
+    description: "為著較好个體驗，請點選單按鈕，然後選「在瀏覽器打開」。",
     dismiss: "關忒提示",
   },
   lzh: {
-    title: "瀏覽器提示",
-    description: "可於此續用。若顯示有異，請由應用選單擇「以瀏覽器開啟」。",
+    title: "以瀏覽器啟之",
+    description: "欲得佳驗，請按選單，而擇「以瀏覽器開啟」。",
     dismiss: "關閉提示",
   },
   yue: {
-    title: "瀏覽器提示",
-    description: "你可以繼續喺度用。如果畫面唔正常，可以用 app 選單揀「喺瀏覽器開啟」。",
+    title: "喺瀏覽器開啟",
+    description: "想有更好體驗，請撳選單按鈕，然後揀「喺瀏覽器開啟」。",
     dismiss: "關閉提示",
   },
   nan: {
-    title: "瀏覽器提示",
-    description: "你會當繼續佇遮用。若顯示無正常，請用 app 選單揀「佇瀏覽器拍開」。",
+    title: "佇瀏覽器拍開",
+    description: "欲有較好的體驗，請揤選單鈕，閣揀「佇瀏覽器拍開」。",
     dismiss: "關閉提示",
   },
 } as const satisfies Record<keyof typeof copy, InAppBrowserNoticeCopy>;
