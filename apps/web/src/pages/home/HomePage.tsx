@@ -96,25 +96,6 @@ export function HomePage() {
         </CardHeader>
 
         <CardContent className="space-y-6 px-0 sm:px-4">
-          {showInAppBrowserNotice ? (
-            <Alert>
-              <ExternalLink aria-hidden="true" />
-              <AlertTitle>{inAppBrowserNotice.title}</AlertTitle>
-              <AlertDescription>{inAppBrowserNotice.description}</AlertDescription>
-              <AlertAction>
-                <Button
-                  aria-label={inAppBrowserNotice.dismiss}
-                  onClick={() => setShowInAppBrowserNotice(false)}
-                  size="icon-xs"
-                  type="button"
-                  variant="ghost"
-                >
-                  <X aria-hidden="true" data-icon="inline-start" />
-                </Button>
-              </AlertAction>
-            </Alert>
-          ) : null}
-
           <div className="flex flex-col items-center text-center">
             <CardTitle className="font-display text-5xl leading-none">{t.profile.name}</CardTitle>
           </div>
@@ -153,6 +134,25 @@ export function HomePage() {
               );
             })}
           </div>
+
+          {showInAppBrowserNotice ? (
+            <Alert role="note">
+              <ExternalLink aria-hidden="true" />
+              <AlertTitle>{inAppBrowserNotice.title}</AlertTitle>
+              <AlertDescription>{inAppBrowserNotice.description}</AlertDescription>
+              <AlertAction>
+                <Button
+                  aria-label={inAppBrowserNotice.dismiss}
+                  onClick={() => setShowInAppBrowserNotice(false)}
+                  size="icon-xs"
+                  type="button"
+                  variant="ghost"
+                >
+                  <X aria-hidden="true" data-icon="inline-start" />
+                </Button>
+              </AlertAction>
+            </Alert>
+          ) : null}
         </CardContent>
 
         <CardFooter className="justify-center border-t-0 bg-transparent px-0 sm:border-t sm:bg-muted/50 sm:p-4">
