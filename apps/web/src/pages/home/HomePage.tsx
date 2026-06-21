@@ -43,11 +43,10 @@ export function HomePage() {
 
   return (
     <main
-      className="min-h-svh bg-background px-4 py-6 text-foreground sm:grid sm:place-items-center sm:bg-(image:--desktop-background-image) sm:bg-cover sm:bg-center sm:bg-no-repeat sm:bg-blend-soft-light sm:py-8"
+      className="min-h-svh bg-background px-4 py-6 text-foreground sm:grid sm:place-items-center sm:bg-(image:--desktop-background-image) sm:bg-[oklch(1_0_0_/_82%)] sm:bg-cover sm:bg-center sm:bg-no-repeat sm:bg-blend-soft-light sm:py-8 dark:sm:bg-background dark:sm:bg-none"
       style={
         {
           "--desktop-background-image": `url(${desktopBackgroundImage})`,
-          backgroundColor: "oklch(1 0 0 / 82%)",
         } as CSSProperties
       }
     >
