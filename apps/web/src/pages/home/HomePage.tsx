@@ -44,6 +44,7 @@ export function HomePage() {
   const t = copy[language];
   const inAppBrowserNotice = inAppBrowserNoticeCopy[language];
   const isFrontPage = location.pathname === "/";
+  const forceInAppBrowserNotice = new URLSearchParams(location.search).get("in-app") === "1";
 
   useEffect(() => {
     document.documentElement.lang = htmlLanguages[language];
@@ -55,8 +56,10 @@ export function HomePage() {
   }, [language, t.meta.description, t.meta.title]);
 
   useEffect(() => {
-    setShowInAppBrowserNotice(isFrontPage && isSocialInAppBrowser(window.navigator.userAgent));
-  }, [isFrontPage]);
+    setShowInAppBrowserNotice(
+      isFrontPage && (forceInAppBrowserNotice || isSocialInAppBrowser(window.navigator.userAgent)),
+    );
+  }, [forceInAppBrowserNotice, isFrontPage]);
 
   return (
     <main
