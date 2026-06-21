@@ -1,6 +1,8 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ExternalLink, X } from "lucide-react";
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { Alert, AlertAction, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -21,16 +23,27 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { redirectPath } from "@csc/shared/redirects";
-import { copy } from "./home-copy";
+import { copy, inAppBrowserNoticeCopy } from "./home-copy";
 import { desktopBackgroundImages, links } from "./home-links";
 import { getInitialLanguage, htmlLanguages, languages, type Language } from "./home-language";
 
+const socialInAppBrowserPattern =
+  /FBAN|FBAV|FB_IAB|Instagram|Line|MicroMessenger|TikTok|Twitter|Snapchat|Pinterest|LinkedInApp|Reddit|XHS/i;
+
+function isSocialInAppBrowser(userAgent: string) {
+  return socialInAppBrowserPattern.test(userAgent);
+}
+
 export function HomePage() {
+  const location = useLocation();
   const [language, setLanguage] = useState<Language>(getInitialLanguage);
+  const [showInAppBrowserNotice, setShowInAppBrowserNotice] = useState(false);
   const [desktopBackgroundImage] = useState(
     () => desktopBackgroundImages[Math.floor(Math.random() * desktopBackgroundImages.length)],
   );
   const t = copy[language];
+  const inAppBrowserNotice = inAppBrowserNoticeCopy[language];
+  const isFrontPage = location.pathname === "/";
 
   useEffect(() => {
     document.documentElement.lang = htmlLanguages[language];
@@ -40,6 +53,10 @@ export function HomePage() {
     description?.setAttribute("content", t.meta.description);
     window.localStorage.setItem("catalog-language", language);
   }, [language, t.meta.description, t.meta.title]);
+
+  useEffect(() => {
+    setShowInAppBrowserNotice(isFrontPage && isSocialInAppBrowser(window.navigator.userAgent));
+  }, [isFrontPage]);
 
   return (
     <main
@@ -79,6 +96,25 @@ export function HomePage() {
         </CardHeader>
 
         <CardContent className="space-y-6 px-0 sm:px-4">
+          {showInAppBrowserNotice ? (
+            <Alert>
+              <ExternalLink aria-hidden="true" />
+              <AlertTitle>{inAppBrowserNotice.title}</AlertTitle>
+              <AlertDescription>{inAppBrowserNotice.description}</AlertDescription>
+              <AlertAction>
+                <Button
+                  aria-label={inAppBrowserNotice.dismiss}
+                  onClick={() => setShowInAppBrowserNotice(false)}
+                  size="icon-xs"
+                  type="button"
+                  variant="ghost"
+                >
+                  <X aria-hidden="true" data-icon="inline-start" />
+                </Button>
+              </AlertAction>
+            </Alert>
+          ) : null}
+
           <div className="flex flex-col items-center text-center">
             <CardTitle className="font-display text-5xl leading-none">{t.profile.name}</CardTitle>
           </div>
