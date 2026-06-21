@@ -8,7 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { usePasteLanguage } from "@/hooks/use-paste-language";
 import { fetchPublicPaste, PasteApiError } from "@/lib/paste-api";
+import { htmlLanguages } from "@/lib/paste-i18n";
 
 type ViewState =
   | { status: "loading" }
@@ -17,21 +19,23 @@ type ViewState =
   | { status: "gone" }
   | { status: "error" };
 
-function formatDate(timestamp: number): string {
-  return new Date(timestamp).toLocaleString();
+function formatDate(timestamp: number, locale: string): string {
+  return new Date(timestamp).toLocaleString(locale);
 }
 
-function formatExpiry(expiresAt: number | null): string {
+function formatExpiry(expiresAt: number | null, locale: string, neverLabel: string): string {
   if (expiresAt === null) {
-    return "Never";
+    return neverLabel;
   }
-  return formatDate(expiresAt);
+  return formatDate(expiresAt, locale);
 }
 
 export function PasteViewPage() {
   const { slug = "" } = useParams();
   const [searchParams] = useSearchParams();
   const isRaw = searchParams.get("raw") === "1";
+  const { language, t } = usePasteLanguage();
+  const locale = htmlLanguages[language];
   const [state, setState] = useState<ViewState>({ status: "loading" });
 
   useEffect(() => {
@@ -69,9 +73,9 @@ export function PasteViewPage() {
   async function handleCopy(content: string) {
     try {
       await navigator.clipboard.writeText(content);
-      toast.success("Copied!");
+      toast.success(t.copied);
     } catch {
-      toast.error("Could not copy to clipboard.");
+      toast.error(t.copyFailed);
     }
   }
 
@@ -79,7 +83,7 @@ export function PasteViewPage() {
     if (isRaw) {
       return (
         <main className="min-h-svh bg-background px-4 py-8 font-mono text-sm text-foreground">
-          Loading…
+          {t.loading}
         </main>
       );
     }
@@ -88,14 +92,14 @@ export function PasteViewPage() {
       <main className="grid min-h-svh place-items-center bg-background px-4 py-8 text-foreground">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Loader2 className="size-4 animate-spin" />
-          Loading paste…
+          {t.public.loading}
         </div>
       </main>
     );
   }
 
   if (state.status === "not_found" || state.status === "gone" || state.status === "error") {
-    const message = state.status === "gone" ? "This paste has expired." : "Paste not found.";
+    const message = state.status === "gone" ? t.public.expired : t.public.notFound;
 
     if (isRaw) {
       return (
@@ -113,7 +117,7 @@ export function PasteViewPage() {
           </CardHeader>
           <CardFooter>
             <Button asChild variant="outline">
-              <a href="/">Back to csc.cat</a>
+              <a href="/">{t.public.back}</a>
             </Button>
           </CardFooter>
         </Card>
@@ -140,10 +144,17 @@ export function PasteViewPage() {
               <CardTitle className="font-mono text-lg">csc.cat/p/{paste.slug}</CardTitle>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="secondary">{pasteLanguageLabel(paste.language)}</Badge>
-                <Badge variant="outline">Expires: {formatExpiry(paste.expiresAt)}</Badge>
+                <Badge variant="outline">
+                  {t.public.expires.replace(
+                    "{date}",
+                    formatExpiry(paste.expiresAt, locale, t.never),
+                  )}
+                </Badge>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground">Created {formatDate(paste.createdAt)}</p>
+            <p className="text-xs text-muted-foreground">
+              {t.public.created.replace("{date}", formatDate(paste.createdAt, locale))}
+            </p>
           </CardHeader>
           <CardContent className="space-y-4">
             <PasteCodeBlock content={paste.content} language={paste.language} />
@@ -155,12 +166,12 @@ export function PasteViewPage() {
                 variant="outline"
               >
                 <Copy />
-                Copy
+                {t.copy}
               </Button>
               <Button asChild type="button" variant="outline">
                 <a href={`?raw=1`} rel="noopener noreferrer" target="_blank">
                   <ExternalLink />
-                  Raw text
+                  {t.public.rawText}
                 </a>
               </Button>
             </div>
