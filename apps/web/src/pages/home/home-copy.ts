@@ -864,83 +864,83 @@ export const inAppBrowserNoticeCopy = {
     dismiss: "Dismiss notice",
   },
   cat: {
-    title: "Obre-ho al navegador",
+    title: "Open in your browser",
     description:
       'Per tenir la millor experiència, toca el botó de menú i tria "Obre al navegador".',
     dismiss: "Tanca l'avís",
   },
   fr: {
-    title: "Ouvrir dans le navigateur",
+    title: "Open in your browser",
     description:
       'Pour une meilleure expérience, touchez le bouton de menu, puis choisissez "Ouvrir dans le navigateur".',
     dismiss: "Fermer l'avis",
   },
   es: {
-    title: "Ábrelo en el navegador",
+    title: "Open in your browser",
     description:
       'Para una mejor experiencia, toca el botón de menú y elige "Abrir en el navegador".',
     dismiss: "Cerrar aviso",
   },
   ja: {
-    title: "ブラウザで開く",
+    title: "Open in your browser",
     description:
       "より快適に使うには、メニューボタンをタップして「ブラウザで開く」を選んでください。",
     dismiss: "通知を閉じる",
   },
   "zh-cn": {
-    title: "在浏览器中打开",
+    title: "Open in your browser",
     description: "为了获得更好的体验，请点按菜单按钮，然后选择“在浏览器中打开”。",
     dismiss: "关闭提示",
   },
   "zh-tw": {
-    title: "在瀏覽器中開啟",
+    title: "Open in your browser",
     description: "為了獲得更好的體驗，請點按選單按鈕，然後選擇「在瀏覽器中開啟」。",
     dismiss: "關閉提示",
   },
   de: {
-    title: "Im Browser öffnen",
+    title: "Open in your browser",
     description: 'Tippe für die beste Erfahrung auf die Menütaste und wähle "Im Browser öffnen".',
     dismiss: "Hinweis schließen",
   },
   it: {
-    title: "Apri nel browser",
+    title: "Open in your browser",
     description:
       'Per un\'esperienza migliore, tocca il pulsante del menu e scegli "Apri nel browser".',
     dismiss: "Chiudi avviso",
   },
   pt: {
-    title: "Abrir no navegador",
+    title: "Open in your browser",
     description:
       'Para uma melhor experiência, toque no botão de menu e escolha "Abrir no navegador".',
     dismiss: "Fechar aviso",
   },
   ko: {
-    title: "브라우저에서 열기",
+    title: "Open in your browser",
     description: "더 나은 경험을 위해 메뉴 버튼을 누른 뒤 “브라우저에서 열기”를 선택하세요.",
     dismiss: "알림 닫기",
   },
   wuu: {
-    title: "勒浏览器里向打开",
+    title: "Open in your browser",
     description: "为着更好个体验，请点菜单按钮，再选“勒浏览器里向打开”。",
     dismiss: "关脱提示",
   },
   hak: {
-    title: "在瀏覽器打開",
+    title: "Open in your browser",
     description: "為著較好个體驗，請點選單按鈕，然後選「在瀏覽器打開」。",
     dismiss: "關忒提示",
   },
   lzh: {
-    title: "以瀏覽器啟之",
+    title: "Open in your browser",
     description: "欲得佳驗，請按選單，而擇「以瀏覽器開啟」。",
     dismiss: "關閉提示",
   },
   yue: {
-    title: "喺瀏覽器開啟",
+    title: "Open in your browser",
     description: "想有更好體驗，請撳選單按鈕，然後揀「喺瀏覽器開啟」。",
     dismiss: "關閉提示",
   },
   nan: {
-    title: "佇瀏覽器拍開",
+    title: "Open in your browser",
     description: "欲有較好的體驗，請揤選單鈕，閣揀「佇瀏覽器拍開」。",
     dismiss: "關閉提示",
   },
