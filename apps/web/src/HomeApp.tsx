@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Toaster } from "sonner";
 import { HomePage } from "@/pages/HomePage";
 import { PasteViewPage } from "@/pages/PasteViewPage";
 
@@ -10,6 +11,7 @@ export function HomeApp() {
         <Route element={<HomePage />} path="/" />
         <Route element={<HomePage />} path="*" />
       </Routes>
+      <Toaster richColors theme="system" />
     </BrowserRouter>
   );
 }

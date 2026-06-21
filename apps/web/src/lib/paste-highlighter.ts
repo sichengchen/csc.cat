@@ -1,18 +1,17 @@
 import type { PasteLanguage } from "@csc/shared";
 
 type PasteHighlighter = {
-  codeToHtml: (code: string, options: { lang: string; theme: string }) => string;
+  codeToHtml: (
+    code: string,
+    options: {
+      lang: string;
+      themes: { light: string; dark: string };
+      defaultColor: false;
+    },
+  ) => string;
 };
 
 let highlighterPromise: Promise<PasteHighlighter> | null = null;
-
-function getColorScheme(): "light" | "dark" {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
-export function getPasteTheme(): "github-light" | "github-dark" {
-  return getColorScheme() === "dark" ? "github-dark" : "github-light";
-}
 
 export async function getPasteHighlighter(): Promise<PasteHighlighter> {
   if (!highlighterPromise) {
@@ -101,6 +100,10 @@ export async function highlightPaste(content: string, language: PasteLanguage): 
   const highlighter = await getPasteHighlighter();
   return highlighter.codeToHtml(content, {
     lang: language,
-    theme: getPasteTheme(),
+    themes: {
+      light: "github-light",
+      dark: "github-dark",
+    },
+    defaultColor: false,
   });
 }

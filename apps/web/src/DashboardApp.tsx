@@ -18,7 +18,7 @@ export function DashboardApp({ kind }: DashboardAppProps) {
         <Route element={<DashboardPage />} path="/" />
         <Route element={<DashboardPage />} path="*" />
       </Routes>
-      <Toaster richColors />
+      <Toaster richColors theme="system" />
     </BrowserRouter>
   );
 }

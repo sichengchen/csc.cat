@@ -6,6 +6,15 @@ import { HomeApp } from "./HomeApp";
 import { getDashboardKind } from "@/lib/dashboard-host";
 import "./style.css";
 
+const systemColorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+function syncDocumentColorScheme() {
+  document.documentElement.classList.toggle("dark", systemColorScheme.matches);
+}
+
+syncDocumentColorScheme();
+systemColorScheme.addEventListener("change", syncDocumentColorScheme);
+
 const publishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 const { hostname, port } = window.location;
