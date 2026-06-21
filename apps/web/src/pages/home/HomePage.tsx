@@ -89,7 +89,7 @@ export function HomePage() {
         </Alert>
       ) : null}
 
-      <Card className="w-full max-w-md rounded-none bg-transparent shadow-none ring-0 sm:rounded-xl sm:bg-card sm:shadow-lg sm:ring-1">
+      <Card className="my-auto w-full max-w-md rounded-none bg-transparent shadow-none ring-0 sm:rounded-xl sm:bg-card sm:shadow-lg sm:ring-1">
         <CardHeader className="px-0 sm:px-4">
           <div className="flex justify-end">
             <DropdownMenu>
