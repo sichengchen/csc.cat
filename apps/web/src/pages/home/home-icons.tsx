@@ -30,7 +30,7 @@ export function FaviconIcon({ "aria-hidden": ariaHidden, className }: SVGProps<S
     <img
       aria-hidden={ariaHidden}
       alt=""
-      className={className}
+      className={`${className ?? ""} dark:invert`}
       decoding="async"
       src="/favicon.svg"
     />
