@@ -33,7 +33,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "RedNote",
@@ -86,7 +86,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "RedNote",
@@ -139,7 +139,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "RedNote",
@@ -192,7 +192,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "RedNote",
@@ -245,7 +245,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "RedNote",
@@ -298,7 +298,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "小红书",
@@ -351,7 +351,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "小紅書",
@@ -404,7 +404,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "RedNote",
@@ -457,7 +457,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "RedNote",
@@ -510,7 +510,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "RedNote",
@@ -563,7 +563,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "RedNote",
@@ -616,7 +616,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "小红书",
@@ -669,7 +669,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "小紅書",
@@ -722,7 +722,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "小紅書",
@@ -775,7 +775,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "小紅書",
@@ -828,7 +828,7 @@ export const copy = {
       },
       instagram: {
         title: "Instagram",
-        description: "@chensc03",
+        description: "@sichengch",
       },
       rednote: {
         title: "小紅書",
