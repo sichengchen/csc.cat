@@ -1,5 +1,4 @@
 import { ChevronDown, ExternalLink, X } from "lucide-react";
-import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Alert, AlertAction, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -23,8 +22,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { redirectPath } from "@csc/shared/redirects";
+import { HomeBackground, type ThemeOverride } from "./HomeBackground";
 import { copy, inAppBrowserNoticeCopy } from "./home-copy";
-import { desktopBackgroundImages, links } from "./home-links";
+import { links } from "./home-links";
 import { getInitialLanguage, htmlLanguages, languages, type Language } from "./home-language";
 
 const socialInAppBrowserPattern =
@@ -34,17 +34,20 @@ function isSocialInAppBrowser(userAgent: string) {
   return socialInAppBrowserPattern.test(userAgent);
 }
 
+function getThemeOverride(search: string): ThemeOverride | undefined {
+  const theme = new URLSearchParams(search).get("theme");
+  return theme === "light" || theme === "dark" ? theme : undefined;
+}
+
 export function HomePage() {
   const location = useLocation();
   const [language, setLanguage] = useState<Language>(getInitialLanguage);
   const [showInAppBrowserNotice, setShowInAppBrowserNotice] = useState(false);
-  const [desktopBackgroundImage] = useState(
-    () => desktopBackgroundImages[Math.floor(Math.random() * desktopBackgroundImages.length)],
-  );
   const t = copy[language];
   const inAppBrowserNotice = inAppBrowserNoticeCopy[language];
   const isFrontPage = location.pathname === "/";
   const forceInAppBrowserNotice = new URLSearchParams(location.search).get("in-app") === "1";
+  const themeOverride = getThemeOverride(location.search);
 
   useEffect(() => {
     document.documentElement.lang = htmlLanguages[language];
@@ -61,15 +64,27 @@ export function HomePage() {
     );
   }, [forceInAppBrowserNotice, isFrontPage]);
 
+  useEffect(() => {
+    if (!themeOverride) {
+      return;
+    }
+
+    document.documentElement.classList.toggle("dark", themeOverride === "dark");
+
+    return () => {
+      document.documentElement.classList.toggle(
+        "dark",
+        window.matchMedia("(prefers-color-scheme: dark)").matches,
+      );
+    };
+  }, [themeOverride]);
+
   return (
     <main
-      className="flex min-h-svh flex-col items-center gap-6 bg-background px-4 py-6 text-foreground sm:bg-(image:--desktop-background-image) sm:bg-[oklch(1_0_0_/_82%)] sm:bg-cover sm:bg-center sm:bg-no-repeat sm:bg-blend-soft-light sm:py-8 dark:sm:bg-background dark:sm:bg-none"
-      style={
-        {
-          "--desktop-background-image": `url(${desktopBackgroundImage})`,
-        } as CSSProperties
-      }
+      className="relative isolate flex min-h-svh flex-col items-center gap-6 overflow-hidden bg-background px-4 py-6 text-foreground sm:py-8"
     >
+      <HomeBackground themeOverride={themeOverride} />
+
       {showInAppBrowserNotice ? (
         <Alert role="note" className="w-full max-w-md">
           <ExternalLink aria-hidden="true" />
@@ -132,7 +147,7 @@ export function HomePage() {
               return (
                 <Button
                   asChild
-                  className="h-auto min-h-18 w-full justify-start whitespace-normal p-0 text-left leading-normal"
+                  className="h-auto min-h-18 w-full justify-start bg-card/90 p-0 text-left leading-normal whitespace-normal backdrop-blur-sm hover:border-foreground/20 hover:bg-card/95 hover:shadow-sm hover:shadow-foreground/5 hover:ring-1 hover:ring-foreground/5 active:translate-y-0 dark:bg-card/90 dark:hover:bg-card/95 dark:hover:shadow-black/20"
                   key={link.id}
                   size="lg"
                   variant="outline"

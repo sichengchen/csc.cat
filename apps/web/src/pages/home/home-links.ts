@@ -29,8 +29,3 @@ export const links: LinkItem[] = [
   { id: "x", icon: SiX },
   { id: "linkedin", icon: LinkedinIcon },
 ];
-
-export const desktopBackgroundImages = Array.from(
-  { length: 9 },
-  (_, index) => `https://static.scchan.moe/homepage/homepage-halftone/horizontal/h${index + 1}.png`,
-);

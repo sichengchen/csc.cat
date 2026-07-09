@@ -8,8 +8,17 @@ import "./style.css";
 
 const systemColorScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
+function getThemeOverride() {
+  const theme = new URLSearchParams(window.location.search).get("theme");
+  return theme === "light" || theme === "dark" ? theme : undefined;
+}
+
 function syncDocumentColorScheme() {
-  document.documentElement.classList.toggle("dark", systemColorScheme.matches);
+  const themeOverride = getThemeOverride();
+  document.documentElement.classList.toggle(
+    "dark",
+    themeOverride ? themeOverride === "dark" : systemColorScheme.matches,
+  );
 }
 
 syncDocumentColorScheme();
