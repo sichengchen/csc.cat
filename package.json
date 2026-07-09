@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "portless",
+    "dev": "devpin run --wait",
     "dev:direct": "PORTLESS=0 vp run --parallel dev:direct",
     "build": "vp run -r build",
     "check": "vp check",
@@ -16,6 +16,7 @@
     "deploy:dry-run": "vp run build && wrangler deploy --dry-run"
   },
   "devDependencies": {
+    "devpin": "^0.1.1",
     "portless": "latest",
     "typescript": "~6.0.2",
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
@@ -25,6 +26,10 @@
   "overrides": {
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
     "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+  },
+  "devpin": {
+    "command": ["node", "scripts/devpin-portless.mjs"],
+    "publicUrl": "https://csc-cat.localhost"
   },
   "packageManager": "pnpm@10.28.2"
 }

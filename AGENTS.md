@@ -22,17 +22,29 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 
 ### Services
 
-| Service                        | Command                      | URL                                                                                                                            |
-| ------------------------------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Full stack (portless, default) | `pnpm dev`                   | https://csc-cat.localhost (home), https://surl.scchan.localhost, https://paste.scchan.localhost, https://api.csc-cat.localhost |
-| Full stack (direct ports)      | `pnpm dev:direct`            | Vite http://localhost:5173, Worker http://localhost:8787                                                                       |
-| Worker + assets (portless)     | `pnpm cf:dev:portless`       | https://csc-cat.localhost (+ dashboard aliases)                                                                                |
-| Worker + assets (direct)       | `pnpm cf:dev`                | http://localhost:8787                                                                                                          |
-| Production preview             | `pnpm build && pnpm preview` | Vite preview port                                                                                                              |
+Agents must use `devpin` for the normal dev server so sessions reuse one managed Portless server instead of starting duplicates.
 
-Run `portless trust` once after install if the browser warns about the local CA. Use `PORTLESS=0 pnpm dev:direct` to bypass portless entirely.
+| Service                        | Command                         | URL                                                                                                                            |
+| ------------------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Full stack (portless, default) | `pnpm exec devpin run --wait`   | https://csc-cat.localhost (home), https://surl.scchan.localhost, https://paste.scchan.localhost, https://api.csc-cat.localhost |
+| Full stack (direct ports)      | `pnpm dev:direct`               | Vite http://localhost:5173, Worker http://localhost:8787                                                                       |
+| Worker + assets (portless)     | `pnpm cf:dev:portless`          | https://csc-cat.localhost (+ dashboard aliases)                                                                                |
+| Worker + assets (direct)       | `pnpm cf:dev`                   | http://localhost:8787                                                                                                          |
+| Production preview             | `pnpm build && pnpm preview`    | Vite preview port                                                                                                              |
 
-Run the dev server in a tmux session so it stays up across agent turns.
+The root `pnpm dev` script delegates to `devpin run --wait`; agents should call `pnpm exec devpin ...` directly when starting, checking, or reusing the dev server.
+Devpin starts the existing Portless workflow through `scripts/devpin-portless.mjs`; do not run that wrapper directly.
+
+Useful devpin commands:
+
+- `pnpm exec devpin guide` — show this repo's devpin workflow
+- `pnpm exec devpin status` — check whether the managed server is already running
+- `pnpm exec devpin run --wait` — start or reuse the managed Portless server
+- `pnpm exec devpin url` — print the managed server URL
+- `pnpm exec devpin logs --tail 100` — inspect recent server logs
+- `pnpm exec devpin stop` — stop the managed server
+
+Run `portless trust` once after install if the browser warns about the local CA. Use direct-port commands only when explicitly testing the non-Portless path.
 
 ### Validation
 
