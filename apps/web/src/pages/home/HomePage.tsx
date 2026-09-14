@@ -140,7 +140,7 @@ export function HomePage() {
                 aria-hidden="true"
                 className="mx-auto h-auto w-full max-w-88 overflow-visible"
                 role="img"
-                viewBox="0 0 352 116"
+                viewBox="0 0 352 104"
               >
                 <defs>
                   <path id="profile-title-arc" d="M 26 88 Q 176 4 326 88" />
@@ -151,12 +151,12 @@ export function HomePage() {
                   </textPath>
                 </text>
                 <text
-                  className="fill-current font-script text-[52px] font-normal"
+                  className="fill-current font-catalog text-[28px] font-semibold tracking-[0.1em]"
                   textAnchor="middle"
                   x="176"
-                  y="112"
+                  y="96"
                 >
-                  Catalog
+                  CATALOG
                 </text>
               </svg>
             </CardTitle>
