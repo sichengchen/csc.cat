@@ -150,7 +150,12 @@ export function HomePage() {
                     {t.profile.name}
                   </textPath>
                 </text>
-                <text className="fill-current text-[38px]" textAnchor="middle" x="176" y="112">
+                <text
+                  className="fill-current font-script text-[52px] font-normal"
+                  textAnchor="middle"
+                  x="176"
+                  y="112"
+                >
                   Catalog
                 </text>
               </svg>
