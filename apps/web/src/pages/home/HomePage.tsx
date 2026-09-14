@@ -44,6 +44,7 @@ export function HomePage() {
   const [language, setLanguage] = useState<Language>(getInitialLanguage);
   const [showInAppBrowserNotice, setShowInAppBrowserNotice] = useState(false);
   const t = copy[language];
+  const isLongCatalogTitle = t.profile.catalog.length > "Catalog".length;
   const inAppBrowserNotice = inAppBrowserNoticeCopy[language];
   const isFrontPage = location.pathname === "/";
   const forceInAppBrowserNotice = new URLSearchParams(location.search).get("in-app") === "1";
@@ -133,14 +134,14 @@ export function HomePage() {
         <CardContent className="space-y-6 px-0 sm:px-4">
           <div className="flex flex-col items-center text-center">
             <CardTitle
-              aria-label={`${t.profile.name} Catalog`}
+              aria-label={`${t.profile.name} ${t.profile.catalog}`}
               className="w-full font-display leading-none"
             >
               <svg
                 aria-hidden="true"
                 className="mx-auto h-auto w-full max-w-88 overflow-visible"
                 role="img"
-                viewBox="0 0 352 104"
+                viewBox={`0 0 352 ${isLongCatalogTitle ? 108 : 104}`}
               >
                 <defs>
                   <path id="profile-title-arc" d="M 26 88 Q 176 4 326 88" />
@@ -151,12 +152,16 @@ export function HomePage() {
                   </textPath>
                 </text>
                 <text
-                  className="fill-current font-catalog text-[28px] font-semibold tracking-[0.1em]"
+                  className={`fill-current font-catalog font-semibold ${
+                    isLongCatalogTitle
+                      ? "text-[25px] tracking-[0.06em]"
+                      : "text-[28px] tracking-[0.1em]"
+                  }`}
                   textAnchor="middle"
                   x="176"
-                  y="96"
+                  y={isLongCatalogTitle ? 100 : 96}
                 >
-                  CATALOG
+                  {t.profile.catalog.toUpperCase()}
                 </text>
               </svg>
             </CardTitle>

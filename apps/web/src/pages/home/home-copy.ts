@@ -1,5 +1,7 @@
 const englishCopyright = "© 2026 Sicheng Chen. All rights reserved.";
 
+// Keep the catalog title in English unless its translation starts with "cat".
+
 export const copy = {
   en: {
     meta: {
@@ -9,6 +11,7 @@ export const copy = {
     language: "Language",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -62,6 +65,7 @@ export const copy = {
     language: "Idioma",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catàleg",
     },
     links: {
       homepage: {
@@ -115,6 +119,7 @@ export const copy = {
     language: "Langue",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalogue",
     },
     links: {
       homepage: {
@@ -168,6 +173,7 @@ export const copy = {
     language: "Idioma",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catálogo",
     },
     links: {
       homepage: {
@@ -221,6 +227,7 @@ export const copy = {
     language: "言語",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -274,6 +281,7 @@ export const copy = {
     language: "语言",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -327,6 +335,7 @@ export const copy = {
     language: "語言",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -380,6 +389,7 @@ export const copy = {
     language: "Sprache",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -433,6 +443,7 @@ export const copy = {
     language: "Lingua",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalogo",
     },
     links: {
       homepage: {
@@ -486,6 +497,7 @@ export const copy = {
     language: "Idioma",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catálogo",
     },
     links: {
       homepage: {
@@ -539,6 +551,7 @@ export const copy = {
     language: "언어",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -592,6 +605,7 @@ export const copy = {
     language: "闲话",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -645,6 +659,7 @@ export const copy = {
     language: "語言",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -698,6 +713,7 @@ export const copy = {
     language: "語言",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -751,6 +767,7 @@ export const copy = {
     language: "語言",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
@@ -804,6 +821,7 @@ export const copy = {
     language: "語言",
     profile: {
       name: "Sicheng Chen",
+      catalog: "Catalog",
     },
     links: {
       homepage: {
