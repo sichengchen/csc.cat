@@ -80,9 +80,7 @@ export function HomePage() {
   }, [themeOverride]);
 
   return (
-    <main
-      className="relative isolate flex min-h-svh flex-col items-center gap-6 overflow-hidden bg-background px-4 py-6 text-foreground sm:py-8"
-    >
+    <main className="relative isolate flex min-h-svh flex-col items-center gap-6 overflow-hidden bg-background px-4 py-6 text-foreground sm:py-8">
       <HomeBackground themeOverride={themeOverride} />
 
       {showInAppBrowserNotice ? (
@@ -134,7 +132,29 @@ export function HomePage() {
 
         <CardContent className="space-y-6 px-0 sm:px-4">
           <div className="flex flex-col items-center text-center">
-            <CardTitle className="font-display text-5xl leading-none">{t.profile.name}</CardTitle>
+            <CardTitle
+              aria-label={`${t.profile.name} Catalog`}
+              className="w-full font-display leading-none"
+            >
+              <svg
+                aria-hidden="true"
+                className="mx-auto h-auto w-full max-w-88 overflow-visible"
+                role="img"
+                viewBox="0 0 352 116"
+              >
+                <defs>
+                  <path id="profile-title-arc" d="M 26 88 Q 176 4 326 88" />
+                </defs>
+                <text className="fill-current text-[52px]">
+                  <textPath href="#profile-title-arc" startOffset="50%" textAnchor="middle">
+                    {t.profile.name}
+                  </textPath>
+                </text>
+                <text className="fill-current text-[38px]" textAnchor="middle" x="176" y="112">
+                  Catalog
+                </text>
+              </svg>
+            </CardTitle>
           </div>
 
           <Separator />
