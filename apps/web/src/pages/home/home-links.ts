@@ -1,4 +1,5 @@
-import { Grip, NotepadText } from "lucide-react";
+import { NotepadText } from "lucide-react";
+// import { Grip } from "lucide-react"; // hidden: My Apps
 import {
   SiBluesky,
   SiGithub,
@@ -21,7 +22,7 @@ export const links: LinkItem[] = [
   { id: "homepage", icon: FaviconIcon },
   { id: "system", icon: HappyMacIcon },
   { id: "blog", icon: NotepadText },
-  { id: "apps", icon: Grip },
+  // { id: "apps", icon: Grip }, // hidden: My Apps
   { id: "github", icon: SiGithub },
   { id: "instagram", icon: SiInstagram },
   { id: "rednote", icon: SiXiaohongshu },
