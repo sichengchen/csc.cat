@@ -1,5 +1,4 @@
-import { NotepadText } from "lucide-react";
-// import { Grip } from "lucide-react"; // hidden: My Apps
+import { NotepadText } from "lucide-react"; // Grip used by Apps (hidden)
 import {
   SiBluesky,
   SiGithub,
