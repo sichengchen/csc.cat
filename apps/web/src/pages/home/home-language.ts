@@ -9,6 +9,7 @@ type Language =
   | "de"
   | "it"
   | "pt"
+  | "da"
   | "nl"
   | "sv"
   | "nb"
@@ -32,6 +33,7 @@ type Language =
 export const languages: { code: Language; label: string }[] = [
   { code: "cat", label: "Català" },
   { code: "cs", label: "Čeština" },
+  { code: "da", label: "Dansk" },
   { code: "de", label: "Deutsch" },
   { code: "en", label: "English" },
   { code: "es", label: "Español" },
@@ -72,6 +74,7 @@ export const htmlLanguages: Record<Language, string> = {
   de: "de",
   it: "it",
   pt: "pt",
+  da: "da",
   nl: "nl",
   sv: "sv",
   nb: "nb",

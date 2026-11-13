@@ -547,6 +547,37 @@ export const copy = {
     },
     copyright: "© 2026 Sicheng Chen. Todos os direitos reservados.",
   },
+  da: {
+    meta: {
+      title: "Sicheng Chen | Links",
+      description: "Sicheng Chen | Links",
+    },
+    language: "Sprog",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Hjemmeside",
+        description: "Sichengs hjemmeside",
+      },
+      system: {
+        title: "System (hjemmeside)",
+        description: "Prøv det selv!",
+      },
+      apps: {
+        title: "Apps",
+        description: "Mine apps",
+      },
+      blog: {
+        title: "Blog",
+        description: "Indlæg, billeder og film, jeg har set for nylig",
+      },
+      ...socialLinks,
+    },
+    copyright: "© 2026 Sicheng Chen. Alle rettigheder forbeholdes.",
+  },
   nl: {
     meta: {
       title: "Sicheng Chen | Links",
@@ -1338,6 +1369,12 @@ export const inAppBrowserNoticeCopy = {
     description:
       'Para uma melhor experiência, toque no botão de menu e escolha "Abrir no navegador".',
     dismiss: "Fechar aviso",
+  },
+  da: {
+    title: "Åbn i browseren",
+    description:
+      'Du får den bedste oplevelse ved at trykke på menuknappen og vælge "Åbn i browseren".',
+    dismiss: "Luk beskeden",
   },
   nl: {
     title: "Openen in je browser",
