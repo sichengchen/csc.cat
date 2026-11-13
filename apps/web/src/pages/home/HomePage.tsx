@@ -43,6 +43,7 @@ export function HomePage() {
   const location = useLocation();
   const [language, setLanguage] = useState<Language>(getInitialLanguage);
   const [showInAppBrowserNotice, setShowInAppBrowserNotice] = useState(false);
+  const direction = language === "ar" || language === "fa" ? "rtl" : "ltr";
   const t = copy[language];
   const isLongCatalogTitle = t.profile.catalog.length > "Catalog".length;
   const inAppBrowserNotice = inAppBrowserNoticeCopy[language];
@@ -58,6 +59,12 @@ export function HomePage() {
     description?.setAttribute("content", t.meta.description);
     window.localStorage.setItem("catalog-language", language);
   }, [language, t.meta.description, t.meta.title]);
+
+  useEffect(() => {
+    document.documentElement.dir = direction;
+
+    return () => document.documentElement.removeAttribute("dir");
+  }, [direction]);
 
   useEffect(() => {
     setShowInAppBrowserNotice(
@@ -106,7 +113,7 @@ export function HomePage() {
       <Card className="my-auto w-full max-w-md rounded-none bg-transparent shadow-none ring-0 sm:rounded-xl sm:bg-card sm:shadow-lg sm:ring-1">
         <CardHeader className="px-0 sm:px-4">
           <div className="flex justify-end">
-            <DropdownMenu>
+            <DropdownMenu dir={direction}>
               <DropdownMenuTrigger asChild>
                 <Button aria-label={t.language} size="sm" type="button" variant="outline">
                   {languages.find((option) => option.code === language)?.label}
@@ -126,7 +133,7 @@ export function HomePage() {
                       lang={htmlLanguages[option.code]}
                       value={option.code}
                     >
-                      {option.label}
+                      <bdi>{option.label}</bdi>
                     </DropdownMenuRadioItem>
                   ))}
                 </DropdownMenuRadioGroup>
@@ -144,6 +151,7 @@ export function HomePage() {
               <svg
                 aria-hidden="true"
                 className="mx-auto h-auto w-full max-w-88 overflow-visible"
+                direction="ltr"
                 role="img"
                 viewBox={`0 0 352 ${isLongCatalogTitle ? 108 : 104}`}
               >
@@ -181,7 +189,7 @@ export function HomePage() {
               return (
                 <Button
                   asChild
-                  className="h-auto min-h-18 w-full justify-start bg-card/90 p-0 text-left leading-normal whitespace-normal backdrop-blur-sm hover:border-foreground/20 hover:bg-card/95 hover:shadow-sm hover:shadow-foreground/5 hover:ring-1 hover:ring-foreground/5 active:translate-y-0 dark:bg-card/90 dark:hover:bg-card/95 dark:hover:shadow-black/20"
+                  className="h-auto min-h-18 w-full justify-start bg-card/90 p-0 text-start leading-normal whitespace-normal backdrop-blur-sm hover:border-foreground/20 hover:bg-card/95 hover:shadow-sm hover:shadow-foreground/5 hover:ring-1 hover:ring-foreground/5 active:translate-y-0 dark:bg-card/90 dark:hover:bg-card/95 dark:hover:shadow-black/20"
                   key={link.id}
                   size="lg"
                   variant="outline"
@@ -193,10 +201,10 @@ export function HomePage() {
                       </span>
                       <span className="min-w-0 flex-1 space-y-0">
                         <span className="block text-sm leading-snug font-medium">
-                          {linkCopy.title}
+                          <bdi>{linkCopy.title}</bdi>
                         </span>
                         <span className="block text-sm leading-snug text-muted-foreground">
-                          {linkCopy.description}
+                          <bdi>{linkCopy.description}</bdi>
                         </span>
                       </span>
                     </span>
@@ -208,7 +216,9 @@ export function HomePage() {
         </CardContent>
 
         <CardFooter className="justify-center border-t-0 bg-transparent px-0 sm:border-t sm:bg-muted/50 sm:p-4">
-          <CardDescription className="text-center text-xs">{t.copyright}</CardDescription>
+          <CardDescription className="text-center text-xs">
+            <bdi lang={t.copyright === copy.en.copyright ? "en" : undefined}>{t.copyright}</bdi>
+          </CardDescription>
         </CardFooter>
       </Card>
     </main>

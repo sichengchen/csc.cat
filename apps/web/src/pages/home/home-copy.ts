@@ -733,6 +733,223 @@ export const copy = {
     },
     copyright: "© 2026 Sicheng Chen. Gach ceart ar cosaint.",
   },
+  cs: {
+    meta: {
+      title: "Sicheng Chen | Odkazy",
+      description: "Sicheng Chen | Odkazy",
+    },
+    language: "Jazyk",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Domovská stránka",
+        description: "Domovská stránka Sichenga",
+      },
+      system: {
+        title: "System (domovská stránka)",
+        description: "Vyzkoušejte to!",
+      },
+      apps: {
+        title: "Aplikace",
+        description: "Moje aplikace",
+      },
+      blog: {
+        title: "Blog",
+        description: "Příspěvky, fotky a filmy, které jsem nedávno viděl",
+      },
+      ...socialLinks,
+    },
+    copyright: "© 2026 Sicheng Chen. Všechna práva vyhrazena.",
+  },
+  pl: {
+    meta: {
+      title: "Sicheng Chen | Linki",
+      description: "Sicheng Chen | Linki",
+    },
+    language: "Język",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Strona główna",
+        description: "Strona główna Sichenga",
+      },
+      system: {
+        title: "System (strona główna)",
+        description: "Wypróbuj!",
+      },
+      apps: {
+        title: "Aplikacje",
+        description: "Moje aplikacje",
+      },
+      blog: {
+        title: "Blog",
+        description: "Wpisy, zdjęcia i filmy, które ostatnio oglądałem",
+      },
+      ...socialLinks,
+    },
+    copyright: "© 2026 Sicheng Chen. Wszelkie prawa zastrzeżone.",
+  },
+  el: {
+    meta: {
+      title: "Sicheng Chen | Σύνδεσμοι",
+      description: "Sicheng Chen | Σύνδεσμοι",
+    },
+    language: "Γλώσσα",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Αρχική σελίδα",
+        description: "Η αρχική σελίδα του Sicheng",
+      },
+      system: {
+        title: "System (αρχική σελίδα)",
+        description: "Δοκίμασέ το!",
+      },
+      apps: {
+        title: "Εφαρμογές",
+        description: "Οι εφαρμογές μου",
+      },
+      blog: {
+        title: "Ιστολόγιο",
+        description: "Αναρτήσεις, φωτογραφίες και ταινίες που είδα πρόσφατα",
+      },
+      ...socialLinks,
+    },
+    copyright: englishCopyright,
+  },
+  ru: {
+    meta: {
+      title: "Sicheng Chen | Ссылки",
+      description: "Sicheng Chen | Ссылки",
+    },
+    language: "Язык",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Главная страница",
+        description: "Главная страница Sicheng Chen",
+      },
+      system: {
+        title: "System (главная страница)",
+        description: "Попробуйте!",
+      },
+      apps: {
+        title: "Приложения",
+        description: "Мои приложения",
+      },
+      blog: {
+        title: "Блог",
+        description: "Записи, фотографии и фильмы, которые я недавно посмотрел",
+      },
+      ...socialLinks,
+    },
+    copyright: englishCopyright,
+  },
+  uk: {
+    meta: {
+      title: "Sicheng Chen | Посилання",
+      description: "Sicheng Chen | Посилання",
+    },
+    language: "Мова",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Головна сторінка",
+        description: "Головна сторінка Sicheng Chen",
+      },
+      system: {
+        title: "System (головна сторінка)",
+        description: "Спробуйте!",
+      },
+      apps: {
+        title: "Застосунки",
+        description: "Мої застосунки",
+      },
+      blog: {
+        title: "Блог",
+        description: "Дописи, світлини й фільми, які я нещодавно переглянув",
+      },
+      ...socialLinks,
+    },
+    copyright: englishCopyright,
+  },
+  ar: {
+    meta: {
+      title: "الروابط | Sicheng Chen",
+      description: "الروابط | Sicheng Chen",
+    },
+    language: "اللغة",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "الصفحة الرئيسية",
+        description: "الصفحة الرئيسية لـ Sicheng Chen",
+      },
+      system: {
+        title: "الصفحة الرئيسية (System)",
+        description: "جرّبها!",
+      },
+      apps: {
+        title: "التطبيقات",
+        description: "تطبيقاتي",
+      },
+      blog: {
+        title: "المدوّنة",
+        description: "تدوينات وصور وأفلام شاهدتها مؤخرًا",
+      },
+      ...socialLinks,
+    },
+    copyright: englishCopyright,
+  },
+  fa: {
+    meta: {
+      title: "پیوندها | Sicheng Chen",
+      description: "پیوندها | Sicheng Chen",
+    },
+    language: "زبان",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "صفحهٔ اصلی",
+        description: "صفحهٔ اصلی Sicheng Chen",
+      },
+      system: {
+        title: "صفحهٔ اصلی (System)",
+        description: "امتحانش کنید!",
+      },
+      apps: {
+        title: "برنامه‌ها",
+        description: "برنامه‌های من",
+      },
+      blog: {
+        title: "وبلاگ",
+        description: "نوشته‌ها، عکس‌ها و فیلم‌هایی که اخیراً دیده‌ام",
+      },
+      ...socialLinks,
+    },
+    copyright: englishCopyright,
+  },
   ko: {
     meta: {
       title: "Sicheng Chen | 링크",
@@ -1155,6 +1372,46 @@ export const inAppBrowserNoticeCopy = {
     description:
       'Chun an t-eispéireas is fearr a fháil, tapáil cnaipe an roghchláir agus roghnaigh "Oscail sa bhrabhsálaí".',
     dismiss: "Dún an fógra",
+  },
+  cs: {
+    title: "Otevřít v prohlížeči",
+    description:
+      "Pro nejlepší zážitek klepněte na tlačítko nabídky a vyberte „Otevřít v prohlížeči“.",
+    dismiss: "Zavřít upozornění",
+  },
+  pl: {
+    title: "Otwórz w przeglądarce",
+    description:
+      "Aby wygodniej korzystać ze strony, stuknij przycisk menu i wybierz „Otwórz w przeglądarce”.",
+    dismiss: "Zamknij komunikat",
+  },
+  el: {
+    title: "Άνοιγμα στο πρόγραμμα περιήγησης",
+    description:
+      "Για καλύτερη εμπειρία, πάτησε το κουμπί μενού και επίλεξε «Άνοιγμα στο πρόγραμμα περιήγησης».",
+    dismiss: "Κλείσιμο ειδοποίησης",
+  },
+  ru: {
+    title: "Открыть в браузере",
+    description:
+      "Чтобы пользоваться сайтом было удобнее, нажмите кнопку меню и выберите «Открыть в браузере».",
+    dismiss: "Закрыть уведомление",
+  },
+  uk: {
+    title: "Відкрити в браузері",
+    description:
+      "Щоб було зручніше користуватися сайтом, натисніть кнопку меню й виберіть «Відкрити в браузері».",
+    dismiss: "Закрити сповіщення",
+  },
+  ar: {
+    title: "افتح الصفحة في المتصفح",
+    description: "للحصول على أفضل تجربة، اضغط على زر القائمة واختر «فتح في المتصفح».",
+    dismiss: "إغلاق التنبيه",
+  },
+  fa: {
+    title: "صفحه را در مرورگر باز کنید",
+    description: "برای تجربهٔ بهتر، روی دکمهٔ منو بزنید و «باز کردن در مرورگر» را انتخاب کنید.",
+    dismiss: "بستن اعلان",
   },
   ko: {
     title: "브라우저에서 열기",

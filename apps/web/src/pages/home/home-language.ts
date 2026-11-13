@@ -15,6 +15,13 @@ type Language =
   | "fi"
   | "is"
   | "ga"
+  | "cs"
+  | "pl"
+  | "el"
+  | "ru"
+  | "uk"
+  | "ar"
+  | "fa"
   | "ko"
   | "wuu"
   | "hak"
@@ -24,6 +31,7 @@ type Language =
 
 export const languages: { code: Language; label: string }[] = [
   { code: "cat", label: "Català" },
+  { code: "cs", label: "Čeština" },
   { code: "de", label: "Deutsch" },
   { code: "en", label: "English" },
   { code: "es", label: "Español" },
@@ -33,9 +41,15 @@ export const languages: { code: Language; label: string }[] = [
   { code: "it", label: "Italiano" },
   { code: "nl", label: "Nederlands" },
   { code: "nb", label: "Norsk bokmål" },
+  { code: "pl", label: "Polski" },
   { code: "pt", label: "Português" },
   { code: "fi", label: "Suomi" },
   { code: "sv", label: "Svenska" },
+  { code: "el", label: "Ελληνικά" },
+  { code: "ru", label: "Русский" },
+  { code: "uk", label: "Українська" },
+  { code: "ar", label: "العربية" },
+  { code: "fa", label: "فارسی" },
   { code: "ko", label: "한국어" },
   { code: "wuu", label: "吴语" },
   { code: "hak", label: "客家話" },
@@ -64,6 +78,13 @@ export const htmlLanguages: Record<Language, string> = {
   fi: "fi",
   is: "is",
   ga: "ga",
+  cs: "cs",
+  pl: "pl",
+  el: "el",
+  ru: "ru",
+  uk: "uk",
+  ar: "ar",
+  fa: "fa",
   ko: "ko",
   wuu: "wuu",
   hak: "hak",
