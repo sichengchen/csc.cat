@@ -113,7 +113,7 @@ export function HomePage() {
                   <ChevronDown aria-hidden="true" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="end" className="min-w-36">
                 <DropdownMenuLabel>{t.language}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuRadioGroup
@@ -121,7 +121,11 @@ export function HomePage() {
                   value={language}
                 >
                   {languages.map((option) => (
-                    <DropdownMenuRadioItem key={option.code} value={option.code}>
+                    <DropdownMenuRadioItem
+                      key={option.code}
+                      lang={htmlLanguages[option.code]}
+                      value={option.code}
+                    >
                       {option.label}
                     </DropdownMenuRadioItem>
                   ))}

@@ -9,6 +9,12 @@ type Language =
   | "de"
   | "it"
   | "pt"
+  | "nl"
+  | "sv"
+  | "nb"
+  | "fi"
+  | "is"
+  | "ga"
   | "ko"
   | "wuu"
   | "hak"
@@ -22,8 +28,14 @@ export const languages: { code: Language; label: string }[] = [
   { code: "en", label: "English" },
   { code: "es", label: "Español" },
   { code: "fr", label: "Français" },
+  { code: "ga", label: "Gaeilge" },
+  { code: "is", label: "Íslenska" },
   { code: "it", label: "Italiano" },
+  { code: "nl", label: "Nederlands" },
+  { code: "nb", label: "Norsk bokmål" },
   { code: "pt", label: "Português" },
+  { code: "fi", label: "Suomi" },
+  { code: "sv", label: "Svenska" },
   { code: "ko", label: "한국어" },
   { code: "wuu", label: "吴语" },
   { code: "hak", label: "客家話" },
@@ -46,6 +58,12 @@ export const htmlLanguages: Record<Language, string> = {
   de: "de",
   it: "it",
   pt: "pt",
+  nl: "nl",
+  sv: "sv",
+  nb: "nb",
+  fi: "fi",
+  is: "is",
+  ga: "ga",
   ko: "ko",
   wuu: "wuu",
   hak: "hak",
@@ -152,7 +170,13 @@ function matchSupportedLanguage(locale: string | undefined): Language | null {
     return "zh-cn";
   }
 
-  return null;
+  const primaryLanguage = language.split("-", 1)[0];
+
+  if (primaryLanguage === "no" || primaryLanguage === "nn") {
+    return "nb";
+  }
+
+  return isLanguage(primaryLanguage) ? primaryLanguage : null;
 }
 
 export function getInitialLanguage(): Language {

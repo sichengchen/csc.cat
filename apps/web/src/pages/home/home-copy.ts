@@ -1,5 +1,32 @@
 const englishCopyright = "© 2026 Sicheng Chen. All rights reserved.";
 
+const socialLinks = {
+  github: {
+    title: "GitHub",
+    description: "@sichengchen",
+  },
+  instagram: {
+    title: "Instagram",
+    description: "@sichengch",
+  },
+  rednote: {
+    title: "RedNote",
+    description: "@scchan",
+  },
+  bluesky: {
+    title: "Bluesky",
+    description: "@scchan.com",
+  },
+  x: {
+    title: "X (Twitter)",
+    description: "@syzen_zen",
+  },
+  linkedin: {
+    title: "LinkedIn",
+    description: "@sichengchen",
+  },
+} as const;
+
 // Keep the catalog title in English unless its translation starts with "cat".
 
 export const copy = {
@@ -30,30 +57,7 @@ export const copy = {
         title: "Blog",
         description: "Posts, photos, and films I recently watched",
       },
-      github: {
-        title: "GitHub",
-        description: "@sichengchen",
-      },
-      instagram: {
-        title: "Instagram",
-        description: "@sichengch",
-      },
-      rednote: {
-        title: "RedNote",
-        description: "@scchan",
-      },
-      bluesky: {
-        title: "Bluesky",
-        description: "@scchan.com",
-      },
-      x: {
-        title: "X (Twitter)",
-        description: "@syzen_zen",
-      },
-      linkedin: {
-        title: "LinkedIn",
-        description: "@sichengchen",
-      },
+      ...socialLinks,
     },
     copyright: englishCopyright,
   },
@@ -543,6 +547,192 @@ export const copy = {
     },
     copyright: "© 2026 Sicheng Chen. Todos os direitos reservados.",
   },
+  nl: {
+    meta: {
+      title: "Sicheng Chen | Links",
+      description: "Sicheng Chen | Links",
+    },
+    language: "Taal",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalogus",
+    },
+    links: {
+      homepage: {
+        title: "Startpagina",
+        description: "De startpagina van Sicheng",
+      },
+      system: {
+        title: "System (startpagina)",
+        description: "Probeer het eens!",
+      },
+      apps: {
+        title: "Apps",
+        description: "Mijn apps",
+      },
+      blog: {
+        title: "Blog",
+        description: "Berichten, foto's en films die ik onlangs heb gezien",
+      },
+      ...socialLinks,
+    },
+    copyright: "© 2026 Sicheng Chen. Alle rechten voorbehouden.",
+  },
+  sv: {
+    meta: {
+      title: "Sicheng Chen | Länkar",
+      description: "Sicheng Chen | Länkar",
+    },
+    language: "Språk",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Startsida",
+        description: "Sichengs startsida",
+      },
+      system: {
+        title: "System (startsida)",
+        description: "Prova själv!",
+      },
+      apps: {
+        title: "Appar",
+        description: "Mina appar",
+      },
+      blog: {
+        title: "Blogg",
+        description: "Inlägg, foton och filmer jag nyligen har sett",
+      },
+      ...socialLinks,
+    },
+    copyright: "© 2026 Sicheng Chen. Alla rättigheter förbehållna.",
+  },
+  nb: {
+    meta: {
+      title: "Sicheng Chen | Lenker",
+      description: "Sicheng Chen | Lenker",
+    },
+    language: "Språk",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Hjemmeside",
+        description: "Sichengs hjemmeside",
+      },
+      system: {
+        title: "System (hjemmeside)",
+        description: "Prøv det selv!",
+      },
+      apps: {
+        title: "Apper",
+        description: "Appene mine",
+      },
+      blog: {
+        title: "Blogg",
+        description: "Innlegg, bilder og filmer jeg nylig har sett",
+      },
+      ...socialLinks,
+    },
+    copyright: "© 2026 Sicheng Chen. Med enerett.",
+  },
+  fi: {
+    meta: {
+      title: "Sicheng Chen | Linkit",
+      description: "Sicheng Chen | Linkit",
+    },
+    language: "Kieli",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Kotisivu",
+        description: "Sichengin kotisivu",
+      },
+      system: {
+        title: "System (kotisivu)",
+        description: "Kokeile tätä!",
+      },
+      apps: {
+        title: "Sovellukset",
+        description: "Sovellukseni",
+      },
+      blog: {
+        title: "Blogi",
+        description: "Kirjoituksia, valokuvia ja viime aikoina katsomiani elokuvia",
+      },
+      ...socialLinks,
+    },
+    copyright: "© 2026 Sicheng Chen. Kaikki oikeudet pidätetään.",
+  },
+  is: {
+    meta: {
+      title: "Sicheng Chen | Tenglar",
+      description: "Sicheng Chen | Tenglar",
+    },
+    language: "Tungumál",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalog",
+    },
+    links: {
+      homepage: {
+        title: "Heimasíða",
+        description: "Heimasíða Sicheng",
+      },
+      system: {
+        title: "System (heimasíða)",
+        description: "Prófaðu þetta!",
+      },
+      apps: {
+        title: "Forrit",
+        description: "Forritin mín",
+      },
+      blog: {
+        title: "Blogg",
+        description: "Færslur, ljósmyndir og kvikmyndir sem ég hef séð nýlega",
+      },
+      ...socialLinks,
+    },
+    copyright: "© 2026 Sicheng Chen. Öll réttindi áskilin.",
+  },
+  ga: {
+    meta: {
+      title: "Sicheng Chen | Naisc",
+      description: "Sicheng Chen | Naisc",
+    },
+    language: "Teanga",
+    profile: {
+      name: "Sicheng Chen",
+      catalog: "Catalóg",
+    },
+    links: {
+      homepage: {
+        title: "Leathanach baile",
+        description: "Leathanach baile Sicheng",
+      },
+      system: {
+        title: "System (leathanach baile)",
+        description: "Bain triail as seo!",
+      },
+      apps: {
+        title: "Aipeanna",
+        description: "Mo chuid aipeanna",
+      },
+      blog: {
+        title: "Blag",
+        description: "Postálacha, grianghraif agus scannáin a chonaic mé le déanaí",
+      },
+      ...socialLinks,
+    },
+    copyright: "© 2026 Sicheng Chen. Gach ceart ar cosaint.",
+  },
   ko: {
     meta: {
       title: "Sicheng Chen | 링크",
@@ -931,6 +1121,40 @@ export const inAppBrowserNoticeCopy = {
     description:
       'Para uma melhor experiência, toque no botão de menu e escolha "Abrir no navegador".',
     dismiss: "Fechar aviso",
+  },
+  nl: {
+    title: "Openen in je browser",
+    description: 'Tik voor de beste ervaring op de menuknop en kies "Openen in browser".',
+    dismiss: "Melding sluiten",
+  },
+  sv: {
+    title: "Öppna i webbläsaren",
+    description: 'Tryck på menyknappen och välj "Öppna i webbläsaren" för bästa upplevelse.',
+    dismiss: "Stäng meddelandet",
+  },
+  nb: {
+    title: "Åpne i nettleseren",
+    description:
+      'Trykk på menyknappen og velg "Åpne i nettleseren" for å få den beste opplevelsen.',
+    dismiss: "Lukk varselet",
+  },
+  fi: {
+    title: "Avaa selaimessa",
+    description:
+      'Saat parhaan käyttökokemuksen napauttamalla valikkopainiketta ja valitsemalla "Avaa selaimessa".',
+    dismiss: "Sulje ilmoitus",
+  },
+  is: {
+    title: "Opna í vafra",
+    description:
+      "Til að fá sem besta upplifun skaltu ýta á valmyndarhnappinn og velja „Opna í vafra“.",
+    dismiss: "Loka tilkynningu",
+  },
+  ga: {
+    title: "Oscail sa bhrabhsálaí",
+    description:
+      'Chun an t-eispéireas is fearr a fháil, tapáil cnaipe an roghchláir agus roghnaigh "Oscail sa bhrabhsálaí".',
+    dismiss: "Dún an fógra",
   },
   ko: {
     title: "브라우저에서 열기",
